@@ -109,6 +109,27 @@ export default function Page() {
         </p>
       </section>
 
+      {/* 검색용 글 */}
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          카드 할인율은 왜 단순 합산하면 안 될까?
+        </h2>
+
+        <p className="mb-3">
+          카드 할인이나 쿠폰 할인이 여러 번 적용될 때는 대부분 할인율을 단순히 더하지 않습니다.
+          첫 번째 할인이 적용된 금액에서 다시 두 번째 할인이 적용되는 방식이 많습니다.
+        </p>
+
+        <p className="mb-3">
+          예를 들어 10% 할인 후 추가 10% 할인을 받는 경우, 실제 할인율은 20%가 아니라 약 19%가 됩니다.
+          그래서 여러 할인 조건이 있을 때는 최종 결제 금액을 직접 계산해보는 것이 좋습니다.
+        </p>
+
+        <p>
+          이 계산기는 결제 금액, 기본 할인율, 추가 할인율을 기준으로 실제 할인 금액과 최종 결제 금액을 계산합니다.
+        </p>
+      </section>
+
       {/* FAQ */}
       <section>
         <h2 className="text-xl font-bold mb-3">자주 묻는 질문</h2>

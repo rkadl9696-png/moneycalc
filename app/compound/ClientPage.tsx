@@ -144,6 +144,26 @@ export default function Page() {
         </p>
       </section>
 
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          복리 계산이 장기 투자에서 중요한 이유
+        </h2>
+
+        <p className="mb-3">
+          복리는 투자 수익이 다시 원금처럼 작동하면서 시간이 지날수록 수익이 누적되는 구조입니다.
+          같은 수익률이라도 투자 기간이 길어질수록 결과 차이가 크게 벌어질 수 있습니다.
+        </p>
+
+        <p className="mb-3">
+          특히 매월 일정 금액을 추가로 투자하는 경우, 원금이 계속 늘어나면서 복리 효과가 더 커질 수 있습니다.
+          그래서 장기 투자에서는 수익률뿐 아니라 투자 기간과 매월 투자금도 함께 고려해야 합니다.
+        </p>
+
+        <p>
+          이 복리 계산기를 사용하면 초기 투자금, 매월 투자금, 수익률, 기간에 따른 예상 최종 금액을 쉽게 확인할 수 있습니다.
+        </p>
+      </section>
+
       <section>
         <h2 className="text-xl font-bold mb-3">자주 묻는 질문</h2>
 

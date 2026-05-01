@@ -121,6 +121,25 @@ export default function Page() {
         </p>
       </section>
 
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          연봉보다 월 실수령액이 중요한 이유
+        </h2>
+
+        <p className="mb-3">
+          연봉은 세전 금액이기 때문에 실제로 매달 통장에 들어오는 금액과 차이가 있습니다.
+          소득세, 지방소득세, 국민연금, 건강보험, 고용보험 등 여러 공제 항목이 반영되기 때문입니다.
+        </p>
+
+        <p className="mb-3">
+          생활비, 저축, 대출 상환 계획을 세울 때는 세전 연봉보다 월 실수령액을 기준으로 보는 것이 더 현실적입니다.
+        </p>
+
+        <p>
+          이 계산기는 입력한 연봉을 기준으로 예상 세후 연봉과 월 실수령액을 빠르게 확인할 수 있도록 도와줍니다.
+        </p>
+      </section>
+
       <section>
         <h2 className="text-xl font-bold mb-3">자주 묻는 질문</h2>
 

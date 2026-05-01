@@ -166,6 +166,27 @@ export default function Page() {
         </p>
       </section>
 
+      {/* 검색용 글 */}
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          전세와 월세 중 어떤 선택이 더 유리할까?
+        </h2>
+
+        <p className="mb-3">
+          전세와 월세를 비교할 때는 단순히 월세 금액만 보면 안 됩니다.
+          전세 보증금처럼 큰 금액이 묶이는 경우, 그 돈을 예금하거나 투자했을 때 얻을 수 있었던 수익도 함께 고려해야 합니다.
+        </p>
+
+        <p className="mb-3">
+          금리가 높을수록 전세 보증금의 기회비용이 커지기 때문에 월세가 상대적으로 유리해질 수 있습니다.
+          반대로 금리가 낮고 월세가 높은 경우에는 전세가 더 유리할 수 있습니다.
+        </p>
+
+        <p>
+          따라서 전세 보증금, 월세 보증금, 월세, 금리, 거주 기간을 함께 입력해 비교하는 것이 가장 현실적인 방법입니다.
+        </p>
+      </section>
+
         {/* FAQ */}
         <section>
         <h2 className="text-xl font-bold mb-3">자주 묻는 질문</h2>
