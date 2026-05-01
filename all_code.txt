@@ -1,0 +1,1284 @@
+﻿import Link from "next/link";
+
+export default function Home() {
+  return (
+    <div className="p-10 max-w-xl mx-auto">
+      <h1 className="text-2xl font-bold mb-2">湲덉쑖 怨꾩궛湲?紐⑥쓬</h1>
+
+      <p className="text-gray-600 mb-6">
+        ?꾩꽭, ?異? ?곕큺, 蹂듬━, 移대뱶 ?좎씤源뚯? ??踰덉뿉 怨꾩궛?대낫?몄슂.
+      </p>
+
+      <ul className="space-y-4">
+
+        <li>
+          <Link href="/jeonse-vs-rent" className="block p-4 border rounded hover:bg-gray-100">
+            <h2 className="text-lg font-bold">?꾩꽭 vs ?붿꽭 怨꾩궛湲?/h2>
+            <p className="text-sm text-gray-600">
+              ?몛 ?꾩꽭? ?붿꽭 以??대뼡 ?좏깮?????좊━?쒖? 諛붾줈 怨꾩궛
+            </p>
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/loan-calc" className="block p-4 border rounded hover:bg-gray-100">
+            <h2 className="text-lg font-bold">?異??곹솚 怨꾩궛湲?/h2>
+            <p className="text-sm text-gray-600">
+              ?몛 ?먮━湲덇퇏??vs ?먭툑洹좊벑, 珥??댁옄 李⑥씠 鍮꾧탳
+            </p>
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/salary-calc" className="block p-4 border rounded hover:bg-gray-100">
+            <h2 className="text-lg font-bold">?곕큺 ?ㅼ닔??怨꾩궛湲?/h2>
+            <p className="text-sm text-gray-600">
+              ?몛 ?명썑 ?붽툒???쇰쭏?몄? 諛붾줈 ?뺤씤
+            </p>
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/compound" className="block p-4 border rounded hover:bg-gray-100">
+            <h2 className="text-lg font-bold">蹂듬━ 怨꾩궛湲?/h2>
+            <p className="text-sm text-gray-600">
+              ?몛 ?ъ옄 ?섏씡???쇰쭏??遺덉뼱?섎뒗吏 怨꾩궛
+            </p>
+          </Link>
+        </li>
+
+        <li>
+          <Link href="/card-calc" className="block p-4 border rounded hover:bg-gray-100">
+            <h2 className="text-lg font-bold">移대뱶 ?좎씤 怨꾩궛湲?/h2>
+            <p className="text-sm text-gray-600">
+              ?몛 ?좎씤 ?곸슜 ???ㅼ젣 寃곗젣 湲덉븸 ?뺤씤
+            </p>
+          </Link>
+        </li>
+
+      </ul>
+    </div>
+  );
+}
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "湲덉쑖 怨꾩궛湲?紐⑥쓬 | ?꾩꽭, ?異? ?곕큺, 蹂듬━ 怨꾩궛湲?,
+  description:
+    "?꾩꽭 vs ?붿꽭 鍮꾧탳, ?異??곹솚 怨꾩궛, ?곕큺 ?ㅼ닔?? 蹂듬━ 怨꾩궛, 移대뱶 ?좎씤 ???ㅼ뼇??湲덉쑖 怨꾩궛湲곕? ??怨녹뿉???쒓났?⑸땲??",
+  verification: {
+    google: "V5ZQ0q3FF9qcbvqRdXbBF4Dz5GYbdJ8PSPO15Qhr7xM",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="ko"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import RelatedCalculators from "../components/RelatedCalculators";
+
+const formatWon = (value: number) => {
+  return Math.round(value).toLocaleString() + "??;
+};
+
+export default function Page() {
+  const [price, setPrice] = useState(100000);
+  const [discount, setDiscount] = useState(10);
+  const [extraDiscount, setExtraDiscount] = useState(0);
+
+  const firstDiscountAmount = price * (discount / 100);
+  const afterFirst = price - firstDiscountAmount;
+
+  const secondDiscountAmount = afterFirst * (extraDiscount / 100);
+  const finalPrice = afterFirst - secondDiscountAmount;
+
+  const totalSaved = price - finalPrice;
+  const totalRate = price > 0 ? (totalSaved / price) * 100 : 0;
+
+  return (
+    <div className="max-w-2xl mx-auto p-6">
+
+      <Link
+        href="/"
+        className="inline-block mb-6 text-base font-semibold text-blue-600 hover:text-blue-800"
+      >
+        ??硫붿씤?쇰줈 ?뚯븘媛湲?
+      </Link>
+
+      <h1 className="text-2xl font-bold mb-2">移대뱶 ?좎씤 怨꾩궛湲?/h1>
+
+      <p className="text-gray-600 mb-6">
+        寃곗젣 湲덉븸怨??좎씤?⑥쓣 ?낅젰?섎㈃ ?좎씤 湲덉븸怨?理쒖쥌 寃곗젣 湲덉븸??怨꾩궛?⑸땲??
+        異붽? ?좎씤(以묐났 ?좎씤)???④퍡 怨꾩궛?????덉뒿?덈떎.
+      </p>
+
+      {/* ?낅젰 */}
+      <section className="border rounded-lg p-4 mb-5">
+        <h2 className="text-xl font-bold mb-4">1. ?좎씤 議곌굔</h2>
+
+        <label className="block mb-2">寃곗젣 湲덉븸 (??</label>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          寃곗젣 湲덉븸: {formatWon(price)}
+        </p>
+
+        <label className="block mt-4 mb-2">湲곕낯 ?좎씤 (%)</label>
+        <input
+          type="number"
+          value={discount}
+          onChange={(e) => setDiscount(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+
+        <label className="block mt-4 mb-2">異붽? ?좎씤 (%)</label>
+        <input
+          type="number"
+          value={extraDiscount}
+          onChange={(e) => setExtraDiscount(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          (移대뱶 ?좎씤 + 荑좏룿 ?좎씤 媛숈? 以묐났 ?좎씤 ?곹솴)
+        </p>
+      </section>
+
+      {/* 寃곌낵 */}
+      <section className="bg-gray-100 rounded-lg p-5 mb-8">
+        <h2 className="text-xl font-bold mb-4">怨꾩궛 寃곌낵</h2>
+
+        <p>1李??좎씤 湲덉븸: {formatWon(firstDiscountAmount)}</p>
+        <p>2李??좎씤 湲덉븸: {formatWon(secondDiscountAmount)}</p>
+
+        <p className="mt-2 font-semibold">珥??좎씤 湲덉븸: {formatWon(totalSaved)}</p>
+        <p>理쒖쥌 寃곗젣 湲덉븸: {formatWon(finalPrice)}</p>
+
+        <div className="mt-5 p-4 bg-white rounded border">
+          <p className="text-lg font-bold">
+            ?몛 珥??좎씤?⑥? ??{totalRate.toFixed(1)}% ?낅땲??
+          </p>
+
+          <p className="mt-2 text-gray-700">
+            ?좎씤? ?⑥닚 ?⑹궛???꾨땲???쒖감?곸쑝濡??곸슜?섍린 ?뚮Ц??
+            10% + 10% ?좎씤? ?ㅼ젣濡???19% ?좎씤 ?④낵媛 諛쒖깮?⑸땲??
+          </p>
+        </div>
+      </section>
+
+      {/* ?ㅻ챸 */}
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">移대뱶 ?좎씤 怨꾩궛 諛⑹떇</h2>
+
+        <p className="mb-3">
+          移대뱶 ?좎씤? ?遺遺?以묐났 ?곸슜 ???쒖감?곸쑝濡?怨꾩궛?⑸땲??
+          利? 泥?踰덉㎏ ?좎씤 ???⑥? 湲덉븸????踰덉㎏ ?좎씤???곸슜?⑸땲??
+        </p>
+
+        <p>
+          ?곕씪???⑥닚???좎씤?⑥쓣 ?뷀븯??寃껋씠 ?꾨땲???ㅼ젣 ?좎씤?⑥? ????븘吏????덉뒿?덈떎.
+        </p>
+      </section>
+
+      {/* 寃?됱슜 湲 */}
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          移대뱶 ?좎씤?⑥? ???⑥닚 ?⑹궛?섎㈃ ???좉퉴?
+        </h2>
+
+        <p className="mb-3">
+          移대뱶 ?좎씤?대굹 荑좏룿 ?좎씤???щ윭 踰??곸슜???뚮뒗 ?遺遺??좎씤?⑥쓣 ?⑥닚???뷀븯吏 ?딆뒿?덈떎.
+          泥?踰덉㎏ ?좎씤???곸슜??湲덉븸?먯꽌 ?ㅼ떆 ??踰덉㎏ ?좎씤???곸슜?섎뒗 諛⑹떇??留롮뒿?덈떎.
+        </p>
+
+        <p className="mb-3">
+          ?덈? ?ㅼ뼱 10% ?좎씤 ??異붽? 10% ?좎씤??諛쏅뒗 寃쎌슦, ?ㅼ젣 ?좎씤?⑥? 20%媛 ?꾨땲????19%媛 ?⑸땲??
+          洹몃옒???щ윭 ?좎씤 議곌굔???덉쓣 ?뚮뒗 理쒖쥌 寃곗젣 湲덉븸??吏곸젒 怨꾩궛?대낫??寃껋씠 醫뗭뒿?덈떎.
+        </p>
+
+        <p>
+          ??怨꾩궛湲곕뒗 寃곗젣 湲덉븸, 湲곕낯 ?좎씤?? 異붽? ?좎씤?⑥쓣 湲곗??쇰줈 ?ㅼ젣 ?좎씤 湲덉븸怨?理쒖쥌 寃곗젣 湲덉븸??怨꾩궛?⑸땲??
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section>
+        <h2 className="text-xl font-bold mb-3">?먯＜ 臾삳뒗 吏덈Ц</h2>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. 10% + 10% ?좎씤?대㈃ 20% ?꾨땶媛??</p>
+          <p>
+            ?꾨떃?덈떎. 10% ?좎씤 ???⑥? 湲덉븸???ㅼ떆 10%媛 ?곸슜?섎?濡??ㅼ젣 ?좎씤?⑥? ??19%?낅땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. 異붽? ?좎씤? ?몄젣 ?ъ슜?섎굹??</p>
+          <p>
+            移대뱶 ?좎씤 + 荑좏룿 ?좎씤 + ?대깽???좎씤泥섎읆 ?щ윭 ?좎씤 議곌굔???덉쓣 ???ъ슜?⑸땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ??怨꾩궛湲곕뒗 ?대뼡 ?곹솴?먯꽌 ?좎슜?쒓???</p>
+          <p>
+            ?쇳븨, 移대뱶 ?좎씤, 荑좏룿 ?곸슜, ?꾨줈紐⑥뀡 鍮꾧탳 ???ㅼ젣 寃곗젣 湲덉븸???뺥솗???뚭퀬 ?띠쓣 ???좎슜?⑸땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?ㅼ젣 移대뱶 泥?뎄 湲덉븸怨?媛숇굹??</p>
+          <p>
+            移대뱶???뺤콉, 理쒕? ?좎씤 ?쒕룄, ?뱀젙 議곌굔 ?깆뿉 ?곕씪 ?ㅼ젣 湲덉븸? ?щ씪吏????덉뒿?덈떎.
+          </p>
+        </div>
+        </section>
+
+        <RelatedCalculators />
+
+      {/* ?섎떒 踰꾪듉 */}
+      <div className="mt-10 text-center">
+        <Link
+          href="/"
+          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700"
+        >
+          怨꾩궛湲?紐⑸줉?쇰줈 ?뚯븘媛湲?
+        </Link>
+      </div>
+    </div>
+  );
+}
+import ClientPage from "./ClientPage";
+
+export const metadata = {
+  title: "移대뱶 ?좎씤 怨꾩궛湲?| ?좎씤 湲덉븸 理쒖쥌 寃곗젣??怨꾩궛",
+  description:
+    "寃곗젣 湲덉븸怨??좎씤?⑥쓣 ?낅젰??移대뱶 ?좎씤 湲덉븸, 異붽? ?좎씤, 理쒖쥌 寃곗젣 湲덉븸??怨꾩궛?대낫?몄슂.",
+};
+
+export default function Page() {
+  return <ClientPage />;
+}
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import RelatedCalculators from "../components/RelatedCalculators";
+
+const formatMoney = (manwon: number) => {
+  const rounded = Math.round(manwon);
+  const eok = Math.floor(rounded / 10000);
+  const rest = rounded % 10000;
+
+  if (eok > 0 && rest > 0) return `${eok}??${rest.toLocaleString()}留뚯썝`;
+  if (eok > 0) return `${eok}?듭썝`;
+  return `${rest.toLocaleString()}留뚯썝`;
+};
+
+export default function Page() {
+  const [principal, setPrincipal] = useState(1000);
+  const [monthly, setMonthly] = useState(50);
+  const [rate, setRate] = useState(5);
+  const [years, setYears] = useState(10);
+
+  const months = years * 12;
+  const monthlyRate = rate / 100 / 12;
+
+  let total = principal;
+  let totalInvested = principal;
+
+  for (let i = 0; i < months; i++) {
+    total = total * (1 + monthlyRate) + monthly;
+    totalInvested += monthly;
+  }
+
+  const profit = total - totalInvested;
+  const profitRate = totalInvested > 0 ? (profit / totalInvested) * 100 : 0;
+
+  return (
+    <div className="max-w-2xl mx-auto p-6">
+      <Link
+        href="/"
+        className="inline-block mb-6 text-base font-semibold text-blue-600 hover:text-blue-800"
+      >
+        ??硫붿씤?쇰줈 ?뚯븘媛湲?
+      </Link>
+
+      <h1 className="text-2xl font-bold mb-2">蹂듬━ 怨꾩궛湲?/h1>
+
+      <p className="text-gray-600 mb-6">
+        珥덇린 ?ъ옄湲? 留ㅼ썡 異붽? ?ъ옄湲? ???섏씡瑜? ?ъ옄 湲곌컙???낅젰?섎㈃ 蹂듬━ 湲곗? ?덉긽 理쒖쥌 湲덉븸??怨꾩궛?⑸땲??
+      </p>
+
+      <section className="border rounded-lg p-4 mb-5">
+        <h2 className="text-xl font-bold mb-4">1. ?ъ옄 議곌굔</h2>
+
+        <label className="block mb-2">珥덇린 ?ъ옄湲?(留뚯썝)</label>
+        <input
+          type="number"
+          value={principal}
+          onChange={(e) => setPrincipal(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          珥덇린 ?ъ옄湲? {formatMoney(principal)}
+        </p>
+
+        <label className="block mt-4 mb-2">留ㅼ썡 異붽? ?ъ옄湲?(留뚯썝)</label>
+        <input
+          type="number"
+          value={monthly}
+          onChange={(e) => setMonthly(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          留ㅼ썡 異붽? ?ъ옄湲? {formatMoney(monthly)}
+        </p>
+
+        <label className="block mt-4 mb-2">???섏씡瑜?(%)</label>
+        <input
+          type="number"
+          value={rate}
+          onChange={(e) => setRate(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+
+        <label className="block mt-4 mb-2">?ъ옄 湲곌컙 (??</label>
+        <input
+          type="number"
+          value={years}
+          onChange={(e) => setYears(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          珥??ъ옄 湲곌컙: {months}媛쒖썡
+        </p>
+      </section>
+
+      <section className="bg-gray-100 rounded-lg p-5 mb-8">
+        <h2 className="text-xl font-bold mb-4">怨꾩궛 寃곌낵</h2>
+
+        <p>珥??ъ옄 ?먭툑: {formatMoney(totalInvested)}</p>
+        <p>?덉긽 ?섏씡: {formatMoney(profit)}</p>
+        <p>?덉긽 理쒖쥌 湲덉븸: {formatMoney(total)}</p>
+
+        <div className="mt-5 p-4 bg-white rounded border">
+          <p className="text-lg font-bold">
+            ?몛 {years}?????덉긽 理쒖쥌 湲덉븸? ??{formatMoney(total)}?낅땲??
+          </p>
+
+          <p className="mt-2">
+            珥??ъ옄 ?먭툑 ?鍮??덉긽 ?섏씡瑜좎? ??{profitRate.toFixed(1)}%?낅땲??
+          </p>
+
+          <p className="mt-2 text-gray-700">
+            蹂듬━???쒓컙??湲몄뼱吏덉닔濡??섏씡???ㅼ떆 ?섏씡??留뚮뱶??援ъ“?닿린 ?뚮Ц??
+            ?ъ옄 湲곌컙??湲몄닔濡?寃곌낵 李⑥씠媛 而ㅼ쭏 ???덉뒿?덈떎.
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">蹂듬━? 臾댁뾿?멸???</h2>
+
+        <p className="mb-3">
+          蹂듬━???먭툑?먯꽌 諛쒖깮???섏씡???ㅼ떆 ?ъ옄?섏뼱 ?ㅼ쓬 ?섏씡??留뚮뱶??諛⑹떇?낅땲??
+          ?⑥닚???먭툑?먮쭔 ?섏씡??遺숇뒗 ?⑤━? ?щ━, ?쒓컙??吏?좎닔濡??섏씡 利앷? ?띾룄媛 而ㅼ쭏 ???덉뒿?덈떎.
+        </p>
+
+        <p>
+          ?덈? ?ㅼ뼱 媛숈? ?섏씡瑜좎씠?쇰룄 1???ъ옄? 10???ъ옄??寃곌낵媛 ?ш쾶 ?щ씪吏????덉뒿?덈떎.
+          洹몃옒??蹂듬━ 怨꾩궛?먯꽌???섏씡瑜좊퓧 ?꾨땲???ъ옄 湲곌컙??留ㅼ슦 以묒슂?⑸땲??
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">蹂듬━ 怨꾩궛 湲곗?</h2>
+
+        <p className="mb-3">
+          ??怨꾩궛湲곕뒗 ???섏씡瑜좎쓣 ???⑥쐞 ?섏씡瑜좊줈 ?섎늻??留ㅼ썡 蹂듬━濡?諛섏쁺?⑸땲??
+          留ㅼ썡 異붽? ?ъ옄湲덉? 留ㅼ썡 留먯뿉 ?ъ옄?섎뒗 寃껋쑝濡?媛?뺥빀?덈떎.
+        </p>
+
+        <p>
+          ?ㅼ젣 ?ъ옄?먯꽌???멸툑, ?섏닔猷? 諛곕떦?뚮뱷?? ?섏쑉, 媛寃?蹂???깆씠 諛쒖깮?????덉쑝誘濡?
+          寃곌낵??李멸퀬?⑹쑝濡?蹂대뒗 寃껋씠 醫뗭뒿?덈떎.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          蹂듬━ 怨꾩궛???κ린 ?ъ옄?먯꽌 以묒슂???댁쑀
+        </h2>
+
+        <p className="mb-3">
+          蹂듬━???ъ옄 ?섏씡???ㅼ떆 ?먭툑泥섎읆 ?묐룞?섎㈃???쒓컙??吏?좎닔濡??섏씡???꾩쟻?섎뒗 援ъ“?낅땲??
+          媛숈? ?섏씡瑜좎씠?쇰룄 ?ъ옄 湲곌컙??湲몄뼱吏덉닔濡?寃곌낵 李⑥씠媛 ?ш쾶 踰뚯뼱吏????덉뒿?덈떎.
+        </p>
+
+        <p className="mb-3">
+          ?뱁엳 留ㅼ썡 ?쇱젙 湲덉븸??異붽?濡??ъ옄?섎뒗 寃쎌슦, ?먭툑??怨꾩냽 ?섏뼱?섎㈃??蹂듬━ ?④낵媛 ??而ㅼ쭏 ???덉뒿?덈떎.
+          洹몃옒???κ린 ?ъ옄?먯꽌???섏씡瑜좊퓧 ?꾨땲???ъ옄 湲곌컙怨?留ㅼ썡 ?ъ옄湲덈룄 ?④퍡 怨좊젮?댁빞 ?⑸땲??
+        </p>
+
+        <p>
+          ??蹂듬━ 怨꾩궛湲곕? ?ъ슜?섎㈃ 珥덇린 ?ъ옄湲? 留ㅼ썡 ?ъ옄湲? ?섏씡瑜? 湲곌컙???곕Ⅸ ?덉긽 理쒖쥌 湲덉븸???쎄쾶 ?뺤씤?????덉뒿?덈떎.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-bold mb-3">?먯＜ 臾삳뒗 吏덈Ц</h2>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. 蹂듬━ 怨꾩궛湲곕뒗 ?대뼡 寃쎌슦???ъ슜?섎굹??</p>
+          <p>
+            ?곴툑, ETF, ??? 二쇱떇 ?κ린?ъ옄泥섎읆 ?쒓컙??吏?⑥뿉 ?곕씪 ?섏씡???꾩쟻?섎뒗 寃쎌슦 ?덉긽 寃곌낵瑜??뺤씤?????ъ슜?⑸땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ???섏씡瑜좎? 臾댁뾿???낅젰?섎㈃ ?섎굹??</p>
+          <p>
+            ?덇툑 湲덈━, ?ъ옄 湲곕??섏씡瑜? ETF ?됯퇏 ?섏씡瑜???蹂몄씤??媛?뺥븯怨??띠? ?곌컙 ?섏씡瑜좎쓣 ?낅젰?섎㈃ ?⑸땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. 留ㅼ썡 異붽? ?ъ옄湲덉? 瑗??낅젰?댁빞 ?섎굹??</p>
+          <p>
+            ?꾨땲?? ??踰덉뿉 ?ъ옄?섎뒗 寃쎌슦?먮뒗 留ㅼ썡 異붽? ?ъ옄湲덉쓣 0?쇰줈 ?낅젰?섎㈃ ?⑸땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. 怨꾩궛 寃곌낵媛 ?ㅼ젣 ?섏씡怨?媛숇굹??</p>
+          <p>
+            ?ㅼ젣 ?ъ옄 寃곌낵???쒖옣 蹂?? ?멸툑, ?섏닔猷? ?섏쑉 ?깆뿉 ?곕씪 ?щ씪吏????덉뒿?덈떎.
+            ??怨꾩궛湲곕뒗 ?κ린 ?ъ옄 怨꾪쉷???몄슦湲??꾪븳 李멸퀬?⑹엯?덈떎.
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?ъ옄 湲곌컙??湲몄닔濡???李⑥씠媛 而ㅼ??섏슂?</p>
+          <p>
+            蹂듬━???섏씡???ㅼ떆 ?먭툑泥섎읆 ?묐룞?섍린 ?뚮Ц??湲곌컙??湲몄뼱吏덉닔濡??섏씡???꾩쟻?섎뒗 ?④낵媛 而ㅼ쭏 ???덉뒿?덈떎.
+          </p>
+        </div>
+        </section>
+
+        <RelatedCalculators />
+        
+        <div className="mt-10 text-center">
+        <Link
+          href="/"
+          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700"
+        >
+          怨꾩궛湲?紐⑸줉?쇰줈 ?뚯븘媛湲?
+        </Link>
+      </div>
+    </div>
+  );
+}
+import ClientPage from "./ClientPage";
+
+export const metadata = {
+  title: "蹂듬━ 怨꾩궛湲?| ?ъ옄 ?섏씡瑜??쒕??덉씠??,
+  description:
+    "珥덇린 ?ъ옄湲? 留ㅼ썡 ?ъ옄湲? ?섏씡瑜? ?ъ옄 湲곌컙???낅젰??蹂듬━ 湲곗? ?덉긽 理쒖쥌 湲덉븸??怨꾩궛?대낫?몄슂.",
+};
+
+export default function Page() {
+  return <ClientPage />;
+}
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import RelatedCalculators from "../components/RelatedCalculators";
+
+// ?뵦 留뚯썝 ??27留?泥쒖썝 ?뺥깭 蹂??
+const formatManwon = (value: number) => {
+  const man = Math.floor(value);
+  const thousand = Math.round((value - man) * 10);
+
+  if (thousand > 0) {
+    return `${man}留?{thousand}泥쒖썝`;
+  }
+  return `${man}留뚯썝`;
+};
+
+// ?뵦 10000 ??1?듭썝 蹂??
+const formatMoney = (manwon: number) => {
+  const eok = Math.floor(manwon / 10000);
+  const rest = manwon % 10000;
+
+  if (eok > 0 && rest > 0) return `${eok}??${rest.toLocaleString()}留뚯썝`;
+  if (eok > 0) return `${eok}?듭썝`;
+  return `${manwon.toLocaleString()}留뚯썝`;
+};
+
+export default function Page() {
+  const [jeonseDeposit, setJeonseDeposit] = useState(10000);
+  const [rentDeposit, setRentDeposit] = useState(1000);
+  const [monthlyRent, setMonthlyRent] = useState(50);
+  const [rate, setRate] = useState(3);
+  const [months, setMonths] = useState(24);
+
+  // 怨꾩궛
+  const jeonseMonthlyCost = (jeonseDeposit * rate) / 100 / 12;
+  const rentDepositMonthlyCost = (rentDeposit * rate) / 100 / 12;
+  const rentTotalMonthlyCost = monthlyRent + rentDepositMonthlyCost;
+
+  const monthlyDiff = Math.abs(jeonseMonthlyCost - rentTotalMonthlyCost);
+  const totalDiff = monthlyDiff * months;
+
+  const isJeonseBetter = jeonseMonthlyCost < rentTotalMonthlyCost;
+
+  return (
+    <div className="max-w-2xl mx-auto p-6">
+
+        <Link
+        href="/"
+        className="inline-block mb-6 text-base font-semibold text-blue-600 hover:text-blue-800"
+        >
+        ??硫붿씤?쇰줈 ?뚯븘媛湲?
+        </Link>
+
+      <h1 className="text-2xl font-bold mb-2">?꾩꽭 vs ?붿꽭 怨꾩궛湲?/h1>
+
+      <p className="text-gray-600 mb-6">
+        ?꾩꽭 蹂댁쬆湲덉쓽 湲고쉶鍮꾩슜怨??붿꽭 鍮꾩슜??鍮꾧탳?댁꽌 ?대뼡 ?좏깮?????좊━?쒖? 怨꾩궛?⑸땲??
+      </p>
+
+      {/* ?꾩꽭 */}
+      <section className="border rounded-lg p-4 mb-5">
+        <h2 className="text-xl font-bold mb-4">1. ?꾩꽭 議곌굔</h2>
+
+        <label className="block mb-2">?꾩꽭 蹂댁쬆湲?(留뚯썝)</label>
+        <input
+          type="number"
+          value={jeonseDeposit}
+          onChange={(e) => setJeonseDeposit(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          ?낅젰???꾩꽭 蹂댁쬆湲? {formatMoney(jeonseDeposit)}
+        </p>
+      </section>
+
+      {/* ?붿꽭 */}
+      <section className="border rounded-lg p-4 mb-5">
+        <h2 className="text-xl font-bold mb-4">2. ?붿꽭 議곌굔</h2>
+
+        <label className="block mb-2">?붿꽭 蹂댁쬆湲?(留뚯썝)</label>
+        <input
+          type="number"
+          value={rentDeposit}
+          onChange={(e) => setRentDeposit(Number(e.target.value))}
+          className="w-full border p-2 rounded mb-3"
+        />
+        <p className="text-sm text-gray-600 mb-4">
+          ?낅젰???붿꽭 蹂댁쬆湲? {formatMoney(rentDeposit)}
+        </p>
+
+        <label className="block mb-2">?붿꽭 (留뚯썝)</label>
+        <input
+          type="number"
+          value={monthlyRent}
+          onChange={(e) => setMonthlyRent(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+      </section>
+
+      {/* 湲곗? */}
+      <section className="border rounded-lg p-4 mb-5">
+        <h2 className="text-xl font-bold mb-4">3. 鍮꾧탳 湲곗?</h2>
+
+        <label className="block mb-2">湲고쉶鍮꾩슜 湲곗? 湲덈━ (%)</label>
+        <input
+          type="number"
+          value={rate}
+          onChange={(e) => setRate(Number(e.target.value))}
+          className="w-full border p-2 rounded mb-3"
+        />
+
+        <p className="text-sm text-gray-600 mb-4">
+          蹂댁쬆湲덉쓣 ?덇툑?섍굅???ъ옄?덉쓣 ???살쓣 ???덉뿀???섏씡瑜?湲곗??낅땲??
+        </p>
+
+        <label className="block mb-2">嫄곗＜ 湲곌컙 (媛쒖썡)</label>
+        <input
+          type="number"
+          value={months}
+          onChange={(e) => setMonths(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+      </section>
+
+      {/* 寃곌낵 */}
+      <section className="bg-gray-100 rounded-lg p-5 mb-8">
+        <h2 className="text-xl font-bold mb-4">怨꾩궛 寃곌낵</h2>
+
+        <p>?꾩꽭 ??湲고쉶鍮꾩슜: {formatManwon(jeonseMonthlyCost)}</p>
+        <p>
+          ?붿꽭 珥???鍮꾩슜: {formatManwon(rentTotalMonthlyCost)}
+          <span className="text-sm text-gray-600">
+            {" "}({formatManwon(monthlyRent)} + 蹂댁쬆湲?湲고쉶鍮꾩슜 {formatManwon(rentDepositMonthlyCost)})
+          </span>
+        </p>
+
+        <div className="mt-5 p-4 bg-white rounded border">
+          <p className="text-lg font-bold">
+            ?몛 ?꾩옱 議곌굔?먯꽌??{isJeonseBetter ? "?꾩꽭" : "?붿꽭"}媛 ???좊━?⑸땲??
+          </p>
+
+          <p className="mt-2">
+            ??湲곗? ??{formatManwon(monthlyDiff)} 李⑥씠媛 ?섎ŉ,
+            <br />
+            {months}媛쒖썡 湲곗??쇰줈????{formatManwon(totalDiff)} 李⑥씠媛 ?⑸땲??
+          </p>
+
+          <p className="mt-2 text-gray-700">
+            ?댁쑀??{isJeonseBetter
+              ? "?꾩꽭 湲고쉶鍮꾩슜???붿꽭蹂대떎 ??린 ?뚮Ц?낅땲??"
+              : "?붿꽭 珥?鍮꾩슜???꾩꽭 湲고쉶鍮꾩슜蹂대떎 ??린 ?뚮Ц?낅땲??"}
+          </p>
+        </div>
+      </section>
+
+      {/* ?ㅻ챸 */}
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">?꾩꽭 vs ?붿꽭 ?듭떖 湲곗?</h2>
+
+        <p className="mb-3">
+          ?꾩꽭? ?붿꽭 鍮꾧탳???⑥닚 湲덉븸???꾨땲???섍린?뚮퉬?⒱숈쓣 湲곗??쇰줈 ?먮떒?댁빞 ?⑸땲??
+        </p>
+
+        <p>
+          蹂댁쬆湲덉? 臾띠씠???덉씠湲??뚮Ц??洹??덉쑝濡??살쓣 ???덉뿀???섏씡??怨좊젮?섎뒗 寃껋씠 以묒슂?⑸땲??
+        </p>
+      </section>
+
+      {/* 寃?됱슜 湲 */}
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          ?꾩꽭? ?붿꽭 以??대뼡 ?좏깮?????좊━?좉퉴?
+        </h2>
+
+        <p className="mb-3">
+          ?꾩꽭? ?붿꽭瑜?鍮꾧탳???뚮뒗 ?⑥닚???붿꽭 湲덉븸留?蹂대㈃ ???⑸땲??
+          ?꾩꽭 蹂댁쬆湲덉쿂????湲덉븸??臾띠씠??寃쎌슦, 洹??덉쓣 ?덇툑?섍굅???ъ옄?덉쓣 ???살쓣 ???덉뿀???섏씡???④퍡 怨좊젮?댁빞 ?⑸땲??
+        </p>
+
+        <p className="mb-3">
+          湲덈━媛 ?믪쓣?섎줉 ?꾩꽭 蹂댁쬆湲덉쓽 湲고쉶鍮꾩슜??而ㅼ?湲??뚮Ц???붿꽭媛 ?곷??곸쑝濡??좊━?댁쭏 ???덉뒿?덈떎.
+          諛섎?濡?湲덈━媛 ??퀬 ?붿꽭媛 ?믪? 寃쎌슦?먮뒗 ?꾩꽭媛 ???좊━?????덉뒿?덈떎.
+        </p>
+
+        <p>
+          ?곕씪???꾩꽭 蹂댁쬆湲? ?붿꽭 蹂댁쬆湲? ?붿꽭, 湲덈━, 嫄곗＜ 湲곌컙???④퍡 ?낅젰??鍮꾧탳?섎뒗 寃껋씠 媛???꾩떎?곸씤 諛⑸쾿?낅땲??
+        </p>
+      </section>
+
+        {/* FAQ */}
+        <section>
+        <h2 className="text-xl font-bold mb-3">?먯＜ 臾삳뒗 吏덈Ц</h2>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. 湲덈━??紐?% ?ｌ뼱???섎굹??</p>
+            <p>
+            ?쇰컲?곸쑝濡??덇툑 湲덈━(2~4%) ?먮뒗 ?ъ옄 ?섏씡瑜?5~7%) 湲곗??쇰줈 ?낅젰?⑸땲??
+            </p>
+        </div>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. ?붿꽭 蹂댁쬆湲덈룄 ??怨꾩궛?섎굹??</p>
+            <p>
+            ?붿꽭 蹂댁쬆湲덈룄 臾띠씠???덉씠湲??뚮Ц??湲고쉶鍮꾩슜??諛쒖깮?⑸땲??
+            </p>
+        </div>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. ?꾩꽭 vs ?붿꽭 ?뺣떟???덈굹??</p>
+            <p>
+            湲덈━, 蹂댁쬆湲? 湲곌컙???곕씪 ?щ씪吏誘濡?怨꾩궛湲곕? ?듯빐 ?먮떒?섎뒗 寃껋씠 媛???뺥솗?⑸땲??
+            </p>
+        </div>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. 嫄곗＜ 湲곌컙??湲몃㈃ ?꾩꽭媛 ?좊━?쒓???</p>
+            <p>
+            ?쇰컲?곸쑝濡?嫄곗＜ 湲곌컙??湲몄닔濡??붿꽭瑜?怨꾩냽 吏遺덊빐???섍린 ?뚮Ц???꾩꽭媛 ?좊━?댁쭏 ???덉뒿?덈떎.
+            ?섏?留?湲덈━???곕씪 寃곌낵???щ씪吏????덉뒿?덈떎.
+            </p>
+        </div>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. ?붿꽭媛 ??쑝硫?臾댁“嫄?醫뗭? 嫄닿???</p>
+            <p>
+            ?붿꽭媛 ??뜑?쇰룄 蹂댁쬆湲덉씠 ?ш굅??湲덈━媛 ?믪쑝硫??꾩껜 鍮꾩슜??利앷??????덉뒿?덈떎.
+            諛섎뱶??珥?鍮꾩슜 湲곗??쇰줈 鍮꾧탳?댁빞 ?⑸땲??
+            </p>
+        </div>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. ??怨꾩궛湲곕뒗 ?대뼡 湲곗??쇰줈 怨꾩궛?섎굹??</p>
+            <p>
+            ?꾩꽭? ?붿꽭 紐⑤몢 蹂댁쬆湲덉씠 臾띠씠???숈븞 諛쒖깮?섎뒗 湲고쉶鍮꾩슜???ы븿?섏뿬 鍮꾧탳?⑸땲??
+            </p>
+        </div>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. ?異??꾩꽭????怨꾩궛??留욌굹??</p>
+            <p>
+            ?꾩꽭 ?異쒖쓣 ?ъ슜?섎뒗 寃쎌슦?먮뒗 ?異??댁옄媛 異붽??섎?濡??ㅼ젣 鍮꾩슜? ???믪븘吏????덉뒿?덈떎.
+            </p>
+        </div>
+
+        <div className="mb-5">
+            <p className="font-bold">Q. 湲덈━媛 ?ㅻⅤ硫?萸먭? 遺덈━?댁??섏슂?</p>
+            <p>
+            湲덈━媛 ?щ씪媛덉닔濡??꾩꽭 蹂댁쬆湲덉쓽 湲고쉶鍮꾩슜??利앷??섍린 ?뚮Ц???꾩꽭媛 ?곷??곸쑝濡?遺덈━?댁쭏 ???덉뒿?덈떎.
+            </p>
+        </div>
+        </section>
+
+        <RelatedCalculators />
+        
+        <div className="mt-10 text-center">
+        <Link
+            href="/"
+            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700"
+        >
+            怨꾩궛湲?紐⑸줉?쇰줈 ?뚯븘媛湲?
+        </Link>
+        </div>
+    </div>
+  );
+}
+import ClientPage from "./ClientPage";
+
+export const metadata = {
+  title: "?꾩꽭 vs ?붿꽭 怨꾩궛湲?| ?대뼡 ?좏깮???좊━?좉퉴?",
+  description:
+    "?꾩꽭? ?붿꽭瑜?湲고쉶鍮꾩슜 湲곗??쇰줈 鍮꾧탳???대뼡 ?좏깮???좊━?쒖? 怨꾩궛?대낫?몄슂.",
+};
+
+export default function Page() {
+  return <ClientPage />;
+}
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import RelatedCalculators from "../components/RelatedCalculators";
+
+const formatMoney = (manwon: number) => {
+  const eok = Math.floor(manwon / 10000);
+  const rest = manwon % 10000;
+
+  if (eok > 0 && rest > 0) return `${eok}??${rest.toLocaleString()}留뚯썝`;
+  if (eok > 0) return `${eok}?듭썝`;
+  return `${manwon.toLocaleString()}留뚯썝`;
+};
+
+const formatFullMoney = (value: number) => {
+  const rounded = Math.round(value * 10) / 10;
+  const eok = Math.floor(rounded / 10000);
+  const restMan = Math.floor(rounded % 10000);
+  const thousand = Math.round((rounded - Math.floor(rounded)) * 10);
+
+  const parts = [];
+
+  if (eok > 0) parts.push(`${eok}??);
+  if (restMan > 0) parts.push(`${restMan.toLocaleString()}留?);
+  if (thousand > 0) parts.push(`${thousand}泥쒖썝`);
+
+  if (parts.length === 0) return "0??;
+  if (thousand === 0) {
+    const last = parts[parts.length - 1];
+    if (last.endsWith("留?)) parts[parts.length - 1] = `${last}??;
+  }
+
+  return parts.join(" ");
+};
+
+export default function Page() {
+  const [amount, setAmount] = useState(10000);
+  const [rate, setRate] = useState(3);
+  const [years, setYears] = useState(20);
+
+  const months = years * 12;
+  const monthlyRate = rate / 100 / 12;
+
+  const equalPaymentMonthly =
+    monthlyRate === 0
+      ? amount / months
+      : (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+
+  const equalPaymentTotal = equalPaymentMonthly * months;
+
+  const principalMonthly = amount / months;
+
+  let balance = amount;
+  let principalEqualTotal = 0;
+
+  for (let i = 0; i < months; i++) {
+    const interest = balance * monthlyRate;
+    principalEqualTotal += principalMonthly + interest;
+    balance -= principalMonthly;
+  }
+
+  const principalEqualFirstMonth = principalMonthly + amount * monthlyRate;
+  const principalEqualLastMonth =
+    principalMonthly + principalMonthly * monthlyRate;
+
+  const diff = Math.abs(equalPaymentTotal - principalEqualTotal);
+  const isPrincipalEqualBetter = principalEqualTotal < equalPaymentTotal;
+
+  return (
+    <div className="max-w-2xl mx-auto p-6">
+
+        <Link
+        href="/"
+        className="inline-block mb-6 text-base font-semibold text-blue-600 hover:text-blue-800"
+        >
+        ??硫붿씤?쇰줈 ?뚯븘媛湲?
+        </Link>
+
+      <h1 className="text-2xl font-bold mb-2">?異??곹솚 怨꾩궛湲?/h1>
+
+      <p className="text-gray-600 mb-6">
+        ?異쒓툑, 湲덈━, 湲곌컙???낅젰?섎㈃ ?먮━湲덇퇏?깃낵 ?먭툑洹좊벑 ?곹솚 諛⑹떇??鍮꾧탳?????덉뒿?덈떎.
+      </p>
+
+      <section className="border rounded-lg p-4 mb-5">
+        <h2 className="text-xl font-bold mb-4">1. ?異?議곌굔</h2>
+
+        <label className="block mb-2">?異?湲덉븸 (留뚯썝)</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          ?낅젰???異?湲덉븸: {formatMoney(amount)}
+        </p>
+
+        <label className="block mt-4 mb-2">湲덈━ (%)</label>
+        <input
+          type="number"
+          value={rate}
+          onChange={(e) => setRate(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+
+        <label className="block mt-4 mb-2">?곹솚 湲곌컙 (??</label>
+        <input
+          type="number"
+          value={years}
+          onChange={(e) => setYears(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          珥??곹솚 湲곌컙: {months}媛쒖썡
+        </p>
+      </section>
+
+      <section className="bg-gray-100 rounded-lg p-5 mb-8">
+        <h2 className="text-xl font-bold mb-4">怨꾩궛 寃곌낵</h2>
+
+        <div className="mb-4">
+          <h3 className="font-bold mb-2">?먮━湲덇퇏???곹솚</h3>
+          <p>留ㅼ썡 ?곹솚?? {formatFullMoney(equalPaymentMonthly)}</p>
+          <p>珥??곹솚?? {formatFullMoney(equalPaymentTotal)}</p>
+        </div>
+
+        <div className="mb-4">
+          <h3 className="font-bold mb-2">?먭툑洹좊벑 ?곹솚</h3>
+          <p>泥????곹솚?? {formatFullMoney(principalEqualFirstMonth)}</p>
+          <p>留덉?留????곹솚?? {formatFullMoney(principalEqualLastMonth)}</p>
+          <p>珥??곹솚?? {formatFullMoney(principalEqualTotal)}</p>
+        </div>
+
+        <div className="mt-5 p-4 bg-white rounded border">
+          <p className="text-lg font-bold">
+            ?몛 ?꾩옱 議곌굔?먯꽌??{isPrincipalEqualBetter ? "?먭툑洹좊벑" : "?먮━湲덇퇏??}?????좊━?⑸땲??
+          </p>
+
+          <p className="mt-2">
+            珥??곹솚??湲곗? ??{formatFullMoney(diff)} 李⑥씠媛 ?⑸땲??
+          </p>
+
+          <p className="mt-2 text-gray-700">
+            ?댁쑀??{isPrincipalEqualBetter
+              ? "?먭툑洹좊벑? 珥덈컲???먭툑????鍮좊Ⅴ寃?以꾩씠湲??뚮Ц???꾩껜 ?댁옄媛 ?곴쾶 諛쒖깮?섍린 ?뚮Ц?낅땲??"
+              : "?먮━湲덇퇏?깆? 留ㅻ떖 ?대뒗 湲덉븸???쇱젙??珥덇린 遺?댁씠 ?곴린 ?뚮Ц?낅땲??"}
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">?먮━湲덇퇏?깃낵 ?먭툑洹좊벑??李⑥씠</h2>
+
+        <p className="mb-3">
+          ?먮━湲덇퇏?깆? 留ㅻ떖 ?대뒗 湲덉븸??嫄곗쓽 ?쇱젙??諛⑹떇?낅땲?? ???⑹엯?≪쓣 ?덉륫?섍린 ?ъ썙
+          二쇳깮?대낫?異쒖씠???κ린 ?異쒖뿉??留롮씠 ?ъ슜?⑸땲??
+        </p>
+
+        <p className="mb-3">
+          ?먭툑洹좊벑? 留ㅻ떖 媛싲뒗 ?먭툑???쇱젙??諛⑹떇?낅땲?? 珥덈컲 ?곹솚 遺?댁? ?ъ?留??먭툑??鍮좊Ⅴ寃?以꾩뼱?ㅼ뼱
+          ?꾩껜 ?댁옄???먮━湲덇퇏?깅낫???곸뼱吏??寃쎌슦媛 留롮뒿?덈떎.
+        </p>
+
+        <p>
+          ?곕씪??留ㅻ떖 遺?댁쓣 ?쇱젙?섍쾶 媛?멸?怨??띕떎硫??먮━湲덇퇏?? 珥??댁옄瑜?以꾩씠怨??띕떎硫??먭툑洹좊벑??怨좊젮?????덉뒿?덈떎.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          ?먮━湲덇퇏?깃낵 ?먭툑洹좊벑 以??대뼡 ?곹솚 諛⑹떇??醫뗭쓣源?
+        </h2>
+
+        <p className="mb-3">
+          ?異??곹솚 諛⑹떇? 留ㅻ떖 ?대뒗 湲덉븸怨?珥??댁옄 遺?댁뿉 ???곹뼢??以띾땲??
+          ?먮━湲덇퇏?깆? 留ㅻ떖 ?곹솚?≪씠 ?쇱젙?댁꽌 ?먭툑 怨꾪쉷???몄슦湲??쎄퀬,
+          ?먭툑洹좊벑? 珥덈컲 遺?댁? ?ъ?留??꾩껜 ?댁옄瑜?以꾩씠?????좊━?????덉뒿?덈떎.
+        </p>
+
+        <p className="mb-3">
+          湲덈━媛 ?믨굅???異?湲곌컙??湲몄닔濡??곹솚 諛⑹떇???곕Ⅸ 珥??곹솚??李⑥씠媛 而ㅼ쭏 ???덉뒿?덈떎.
+          ?곕씪???異?湲덉븸, 湲덈━, 湲곌컙???낅젰????諛⑹떇??李⑥씠瑜?吏곸젒 鍮꾧탳?대낫??寃껋씠 醫뗭뒿?덈떎.
+        </p>
+
+        <p>
+          ???⑹엯 遺?댁쓣 以꾩씠怨??띕떎硫??먮━湲덇퇏?? 珥??댁옄瑜?以꾩씠怨??띕떎硫??먭툑洹좊벑???곗꽑 鍮꾧탳?대낵 ???덉뒿?덈떎.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-bold mb-3">?먯＜ 臾삳뒗 吏덈Ц</h2>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?먮━湲덇퇏?깆씠? 臾댁뾿?멸???</p>
+          <p>
+            ?먮━湲덇퇏?깆? ?먭툑怨??댁옄瑜??⑹튇 ???곹솚?≪씠 留ㅻ떖 嫄곗쓽 ?숈씪?섍쾶 ?좎??섎뒗 諛⑹떇?낅땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?먭툑洹좊벑?대? 臾댁뾿?멸???</p>
+          <p>
+            ?먭툑洹좊벑? 留ㅻ떖 媛숈? 湲덉븸???먭툑??媛싰퀬, ?⑥? ?먭툑???곕씪 ?댁옄媛 以꾩뼱?쒕뒗 諛⑹떇?낅땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?대뼡 諛⑹떇???댁옄瑜????곴쾶 ?대굹??</p>
+          <p>
+            ?쇰컲?곸쑝濡??먭툑洹좊벑???꾩껜 ?댁옄?????곸뒿?덈떎. ?먭툑??珥덈컲遺??鍮좊Ⅴ寃?以꾩씠湲??뚮Ц?낅땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ???먮━湲덇퇏?깆쓣 留롮씠 ?ъ슜?섎굹??</p>
+          <p>
+            留ㅻ떖 ?대뒗 湲덉븸???쇱젙?댁꽌 ?먭툑 怨꾪쉷???몄슦湲??쎄퀬 珥덇린 遺?댁씠 ?곷??곸쑝濡???린 ?뚮Ц?낅땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. 湲덈━媛 ?믪쑝硫??대뼡 諛⑹떇?????좊━?쒓???</p>
+          <p>
+            湲덈━媛 ?믪쓣?섎줉 ?먭툑??鍮⑤━ 以꾩씠???먭툑洹좊벑 諛⑹떇??珥??댁옄 痢〓㈃?먯꽌 ???좊━?댁쭏 ???덉뒿?덈떎.
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ??怨꾩궛湲곕뒗 ?ㅼ젣 ????곹솚?↔낵 ?꾩쟾??媛숇굹??</p>
+          <p>
+            ?ㅼ젣 ????곹뭹? 以묐룄?곹솚?섏닔猷? 嫄곗튂湲곌컙, ?곕?湲덈━, ?곹솚??怨꾩궛 諛⑹떇 ?깆뿉 ?곕씪 ?щ씪吏????덉뒿?덈떎.
+            ??怨꾩궛湲곕뒗 湲곕낯?곸씤 鍮꾧탳?⑹쑝濡??ъ슜?섎뒗 寃껋씠 醫뗭뒿?덈떎.
+          </p>
+        </div>
+        </section>
+
+        <RelatedCalculators />
+        
+        <div className="mt-10 text-center">
+        <Link
+            href="/"
+            className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700"
+        >
+            怨꾩궛湲?紐⑸줉?쇰줈 ?뚯븘媛湲?
+        </Link>
+        </div>
+    </div>
+  );
+}
+import ClientPage from "./ClientPage";
+
+export const metadata = {
+  title: "?異??곹솚 怨꾩궛湲?| ?먮━湲덇퇏??vs ?먭툑洹좊벑 鍮꾧탳",
+  description:
+    "?異?湲덉븸, 湲덈━, 湲곌컙???낅젰???먮━湲덇퇏?깃낵 ?먭툑洹좊벑 ?곹솚 諛⑹떇??珥??곹솚?↔낵 ?댁옄 李⑥씠瑜?鍮꾧탳?대낫?몄슂.",
+};
+
+export default function Page() {
+  return <ClientPage />;
+}
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import RelatedCalculators from "../components/RelatedCalculators";
+
+const formatMoney = (manwon: number) => {
+  const eok = Math.floor(manwon / 10000);
+  const rest = Math.round(manwon % 10000);
+
+  if (eok > 0 && rest > 0) return `${eok}??${rest.toLocaleString()}留뚯썝`;
+  if (eok > 0) return `${eok}?듭썝`;
+  return `${rest.toLocaleString()}留뚯썝`;
+};
+
+const formatMonthlyMoney = (manwon: number) => {
+  const rounded = Math.round(manwon * 10) / 10;
+  const man = Math.floor(rounded);
+  const thousand = Math.round((rounded - man) * 10);
+
+  if (thousand > 0) return `${man.toLocaleString()}留?${thousand}泥쒖썝`;
+  return `${man.toLocaleString()}留뚯썝`;
+};
+
+export default function Page() {
+  const [salary, setSalary] = useState(4000);
+
+  // ?⑥닚 ?덉긽 怨듭젣??
+  const incomeTaxRate = 0.06;
+  const localTaxRate = 0.006;
+  const pensionRate = 0.045;
+  const healthRate = 0.03545;
+  const careRate = 0.00459;
+  const employmentRate = 0.009;
+
+  const incomeTax = salary * incomeTaxRate;
+  const localTax = salary * localTaxRate;
+  const pension = salary * pensionRate;
+  const health = salary * healthRate;
+  const care = salary * careRate;
+  const employment = salary * employmentRate;
+
+  const totalDeduction =
+    incomeTax + localTax + pension + health + care + employment;
+
+  const netYearly = salary - totalDeduction;
+  const netMonthly = netYearly / 12;
+  const deductionMonthly = totalDeduction / 12;
+
+  return (
+    <div className="max-w-2xl mx-auto p-6">
+      <Link
+        href="/"
+        className="inline-block mb-6 text-base font-semibold text-blue-600 hover:text-blue-800"
+      >
+        ??硫붿씤?쇰줈 ?뚯븘媛湲?
+      </Link>
+
+      <h1 className="text-2xl font-bold mb-2">?곕큺 ?ㅼ닔??怨꾩궛湲?/h1>
+
+      <p className="text-gray-600 mb-6">
+        ?곕큺???낅젰?섎㈃ ?덉긽 ?명썑 ?곕큺, ???ㅼ닔?뱀븸, 怨듭젣 湲덉븸??怨꾩궛?⑸땲??
+      </p>
+
+      <section className="border rounded-lg p-4 mb-5">
+        <h2 className="text-xl font-bold mb-4">1. ?곕큺 ?낅젰</h2>
+
+        <label className="block mb-2">?곕큺 (留뚯썝)</label>
+        <input
+          type="number"
+          value={salary}
+          onChange={(e) => setSalary(Number(e.target.value))}
+          className="w-full border p-2 rounded"
+        />
+
+        <p className="text-sm text-gray-600 mt-1">
+          ?낅젰???곕큺: {formatMoney(salary)}
+        </p>
+      </section>
+
+      <section className="bg-gray-100 rounded-lg p-5 mb-8">
+        <h2 className="text-xl font-bold mb-4">怨꾩궛 寃곌낵</h2>
+
+        <p>?덉긽 ?몄쟾 ?곕큺: {formatMoney(salary)}</p>
+        <p>?덉긽 ?명썑 ?곕큺: {formatMoney(netYearly)}</p>
+        <p>???ㅼ닔?뱀븸: {formatMonthlyMoney(netMonthly)}</p>
+        <p>??怨듭젣?? {formatMonthlyMoney(deductionMonthly)}</p>
+
+        <div className="mt-5 p-4 bg-white rounded border">
+          <p className="text-lg font-bold">
+            ?몛 ?덉긽 ???ㅼ닔?뱀븸? ??{formatMonthlyMoney(netMonthly)}?낅땲??
+          </p>
+
+          <p className="mt-2 text-gray-700">
+            ?낅젰???곕큺?먯꽌 ?뚮뱷?? 吏諛⑹냼?앹꽭, 援???곌툑, 嫄닿컯蹂댄뿕,
+            ?κ린?붿뼇蹂댄뿕, 怨좎슜蹂댄뿕 ?깆쓣 ?⑥닚 異붿젙?섏뿬 怨꾩궛?덉뒿?덈떎.
+          </p>
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">怨듭젣 ??ぉ ?덉긽</h2>
+
+        <p>?뚮뱷?? {formatMoney(incomeTax)}</p>
+        <p>吏諛⑹냼?앹꽭: {formatMoney(localTax)}</p>
+        <p>援???곌툑: {formatMoney(pension)}</p>
+        <p>嫄닿컯蹂댄뿕: {formatMoney(health)}</p>
+        <p>?κ린?붿뼇蹂댄뿕: {formatMoney(care)}</p>
+        <p>怨좎슜蹂댄뿕: {formatMoney(employment)}</p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">?곕큺 ?ㅼ닔?뱀븸? ???ㅻ? ???덈굹??</h2>
+
+        <p className="mb-3">
+          ?ㅼ젣 ?ㅼ닔?뱀븸? ?뚯궗??湲됱뿬 泥닿퀎, 鍮꾧낵???앸?, 遺?묎?議???
+          ?깃낵湲? ?곸뿬湲? 4?蹂댄뿕 ?곸슜 湲곗????곕씪 ?щ씪吏????덉뒿?덈떎.
+        </p>
+
+        <p>
+          ??怨꾩궛湲곕뒗 ??듭쟻???ㅼ닔?뱀븸??鍮좊Ⅴ寃??뺤씤?섍린 ?꾪븳 李멸퀬??怨꾩궛湲곗엯?덈떎.
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-xl font-bold mb-3">
+          ?곕큺蹂대떎 ???ㅼ닔?뱀븸??以묒슂???댁쑀
+        </h2>
+
+        <p className="mb-3">
+          ?곕큺? ?몄쟾 湲덉븸?닿린 ?뚮Ц???ㅼ젣濡?留ㅻ떖 ?듭옣???ㅼ뼱?ㅻ뒗 湲덉븸怨?李⑥씠媛 ?덉뒿?덈떎.
+          ?뚮뱷?? 吏諛⑹냼?앹꽭, 援???곌툑, 嫄닿컯蹂댄뿕, 怨좎슜蹂댄뿕 ???щ윭 怨듭젣 ??ぉ??諛섏쁺?섍린 ?뚮Ц?낅땲??
+        </p>
+
+        <p className="mb-3">
+          ?앺솢鍮? ?異? ?異??곹솚 怨꾪쉷???몄슱 ?뚮뒗 ?몄쟾 ?곕큺蹂대떎 ???ㅼ닔?뱀븸??湲곗??쇰줈 蹂대뒗 寃껋씠 ???꾩떎?곸엯?덈떎.
+        </p>
+
+        <p>
+          ??怨꾩궛湲곕뒗 ?낅젰???곕큺??湲곗??쇰줈 ?덉긽 ?명썑 ?곕큺怨????ㅼ닔?뱀븸??鍮좊Ⅴ寃??뺤씤?????덈룄濡??꾩?以띾땲??
+        </p>
+      </section>
+
+      <section>
+        <h2 className="text-xl font-bold mb-3">?먯＜ 臾삳뒗 吏덈Ц</h2>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?곕큺 ?ㅼ닔?뱀븸? ?뺥솗??湲덉븸?멸???</p>
+          <p>
+            ?뺥솗??湲됱뿬紐낆꽭??湲덉븸怨쇰뒗 李⑥씠媛 ?덉쓣 ???덉뒿?덈떎.
+            ?뚯궗蹂?怨듭젣 湲곗?怨?鍮꾧낵????ぉ???곕씪 ?щ씪吏묐땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ???ㅼ닔?뱀븸? ?대뼸寃?怨꾩궛?섎굹??</p>
+          <p>
+            ?곕큺?먯꽌 ?덉긽 怨듭젣?≪쓣 ?쒖쇅????12媛쒖썡濡??섎늻??怨꾩궛?⑸땲??
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. 4?蹂댄뿕???ы븿?섎굹??</p>
+          <p>
+            援???곌툑, 嫄닿컯蹂댄뿕, ?κ린?붿뼇蹂댄뿕, 怨좎슜蹂댄뿕???⑥닚 鍮꾩쑉濡?諛섏쁺?덉뒿?덈떎.
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?곸뿬湲덉씠???깃낵湲됰룄 ?ы븿?섎굹??</p>
+          <p>
+            ?꾩옱 怨꾩궛? ?낅젰???곕큺 ?꾩껜瑜?湲곗??쇰줈 ?⑥닚 怨꾩궛?⑸땲??
+            蹂꾨룄 ?깃낵湲됱씠??鍮꾩젙湲??곸뿬湲덉? ?ㅼ젣? 李⑥씠媛 ?????덉뒿?덈떎.
+          </p>
+        </div>
+
+        <div className="mb-5">
+          <p className="font-bold">Q. ?명썑 ?곕큺怨????ㅼ닔?뱀븸? ??以묒슂?쒓???</p>
+          <p>
+            ?ㅼ젣 ?앺솢鍮? ?異? ?異?媛??湲덉븸? ?몄쟾 ?곕큺蹂대떎 ?명썑 ???ㅼ닔?뱀븸 湲곗??쇰줈 蹂대뒗 寃껋씠 ?꾩떎?곸엯?덈떎.
+          </p>
+        </div>
+        </section>
+
+        <RelatedCalculators />
+        
+        <div className="mt-10 text-center">
+        <Link
+          href="/"
+          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700"
+        >
+          怨꾩궛湲?紐⑸줉?쇰줈 ?뚯븘媛湲?
+        </Link>
+      </div>
+    </div>
+  );
+}
+import ClientPage from "./ClientPage";
+
+export const metadata = {
+  title: "?곕큺 ?ㅼ닔??怨꾩궛湲?| ?명썑 ?붽툒 怨꾩궛",
+  description:
+    "?곕큺???낅젰?섎㈃ ?덉긽 ?명썑 ?곕큺, ???ㅼ닔?뱀븸, 怨듭젣 湲덉븸??怨꾩궛?????덉뒿?덈떎.",
+};
+
+export default function Page() {
+  return <ClientPage />;
+}
+import Link from "next/link";
+
+export default function RelatedCalculators() {
+  return (
+    <div className="mt-8 text-sm text-gray-600">
+      <p className="font-bold mb-2">?④퍡 蹂대㈃ 醫뗭? 怨꾩궛湲?/p>
+      <ul className="list-disc ml-5 space-y-1">
+        <li><Link href="/jeonse-vs-rent">?꾩꽭 vs ?붿꽭 怨꾩궛湲?/Link></li>
+        <li><Link href="/loan-calc">?異??곹솚 怨꾩궛湲?/Link></li>
+        <li><Link href="/salary-calc">?곕큺 ?ㅼ닔??怨꾩궛湲?/Link></li>
+        <li><Link href="/compound">蹂듬━ 怨꾩궛湲?/Link></li>
+        <li><Link href="/card-calc">移대뱶 ?좎씤 怨꾩궛湲?/Link></li>
+      </ul>
+    </div>
+  );
+}
