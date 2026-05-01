@@ -1,53 +1,28 @@
 import Link from "next/link";
 
-const calculators = [
+const categories = [
   {
-    href: "/jeonse-vs-rent",
-    icon: "🏠",
-    title: "전세 vs 월세 계산기",
-    desc: "전세와 월세 중 어떤 선택이 더 유리한지 바로 계산",
+    label: "🏠 부동산",
+    items: [
+      { href: "/jeonse-vs-rent", icon: "🏠", title: "전세 vs 월세 계산기", desc: "전세와 월세 중 어떤 선택이 더 유리한지 바로 계산", hot: true },
+      { href: "/jeonse-loan-calc", icon: "🔑", title: "전세대출 계산기", desc: "전세대출 월 이자와 총 이자 부담 계산", hot: false },
+      { href: "/loan-calc", icon: "💳", title: "대출 상환 계산기", desc: "원리금균등 vs 원금균등, 총 이자 차이 비교", hot: false },
+    ],
   },
   {
-    href: "/loan-calc",
-    icon: "💳",
-    title: "대출 상환 계산기",
-    desc: "원리금균등 vs 원금균등, 총 이자 차이 비교",
+    label: "💰 급여 · 재테크",
+    items: [
+      { href: "/salary-calc", icon: "💰", title: "연봉 실수령 계산기", desc: "세후 월급이 얼마인지 바로 확인", hot: true },
+      { href: "/compound", icon: "📈", title: "복리 계산기", desc: "투자 수익이 얼마나 불어나는지 계산", hot: false },
+      { href: "/interest-calc", icon: "🏦", title: "이자 계산기", desc: "예금 이자와 세후 수령액 바로 계산", hot: false },
+      { href: "/savings-calc", icon: "🐷", title: "적금 계산기", desc: "매월 납입 시 만기 수령액 계산", hot: false },
+    ],
   },
   {
-    href: "/salary-calc",
-    icon: "💰",
-    title: "연봉 실수령 계산기",
-    desc: "세후 월급이 얼마인지 바로 확인",
-  },
-  {
-    href: "/compound",
-    icon: "📈",
-    title: "복리 계산기",
-    desc: "투자 수익이 얼마나 불어나는지 계산",
-  },
-  {
-    href: "/card-calc",
-    icon: "🎫",
-    title: "카드 할인 계산기",
-    desc: "할인 적용 후 실제 결제 금액 확인",
-  },
-  {
-    href: "/interest-calc",
-    icon: "🏦",
-    title: "이자 계산기",
-    desc: "예금 이자와 세후 수령액 바로 계산",
-  },
-  {
-    href: "/savings-calc",
-    icon: "🐷",
-    title: "적금 계산기",
-    desc: "매월 납입 시 만기 수령액 계산",
-  },
-  {
-    href: "/jeonse-loan-calc",
-    icon: "🔑",
-    title: "전세대출 계산기",
-    desc: "전세대출 월 이자와 총 이자 부담 계산",
+    label: "🛍️ 소비",
+    items: [
+      { href: "/card-calc", icon: "🎫", title: "카드 할인 계산기", desc: "할인 적용 후 실제 결제 금액 확인", hot: false },
+    ],
   },
 ];
 
@@ -66,23 +41,39 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 카드 목록 */}
-        <div className="flex flex-col gap-4">
-          {calculators.map((calc) => (
-            <Link
-              key={calc.href}
-              href={calc.href}
-              className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-400 transition-all"
-            >
-              <div className="text-3xl w-12 h-12 flex items-center justify-center bg-blue-50 rounded-lg shrink-0">
-                {calc.icon}
+        {/* 카테고리별 카드 */}
+        <div className="flex flex-col gap-8">
+          {categories.map((category) => (
+            <div key={category.label}>
+              <h2 className="text-sm font-bold text-gray-400 mb-3 tracking-wide">
+                {category.label}
+              </h2>
+              <div className="flex flex-col gap-3">
+                {category.items.map((calc) => (
+                  <Link
+                    key={calc.href}
+                    href={calc.href}
+                    className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-400 transition-all"
+                  >
+                    <div className="text-3xl w-12 h-12 flex items-center justify-center bg-blue-50 rounded-lg shrink-0">
+                      {calc.icon}
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-base font-bold text-gray-800">{calc.title}</h3>
+                        {calc.hot && (
+                          <span className="text-xs bg-red-100 text-red-500 font-bold px-2 py-0.5 rounded-full">
+                            🔥 인기
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-500 mt-0.5">{calc.desc}</p>
+                    </div>
+                    <div className="ml-auto text-gray-300 text-xl">›</div>
+                  </Link>
+                ))}
               </div>
-              <div>
-                <h2 className="text-base font-bold text-gray-800">{calc.title}</h2>
-                <p className="text-sm text-gray-500 mt-0.5">{calc.desc}</p>
-              </div>
-              <div className="ml-auto text-gray-300 text-xl">›</div>
-            </Link>
+            </div>
           ))}
         </div>
 
