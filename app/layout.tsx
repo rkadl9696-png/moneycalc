@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "전세 vs 월세 계산기 | 대출 계산기 | 금융 계산기 모음",
+  title: "금융 계산기 모음 | 전세, 대출, 연봉, 복리 계산기",
   description:
-    "전세 vs 월세 비교, 대출 상환 계산, 연봉 실수령, 복리 계산, 카드 할인 계산 등 다양한 금융 계산기를 제공합니다.",
+    "전세 vs 월세 비교, 대출 상환 계산, 연봉 실수령, 복리 계산, 카드 할인 등 다양한 금융 계산기를 한 곳에서 제공합니다.",
   verification: {
     google: "V5ZQ0q3FF9qcbvqRdXbBF4Dz5GYbdJ8PSPO15Qhr7xM",
   },
