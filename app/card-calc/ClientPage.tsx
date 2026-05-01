@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import RelatedCalculators from "../components/RelatedCalculators";
 
 const formatWon = (value: number) => {
   return Math.round(value).toLocaleString() + "원";
@@ -161,18 +162,9 @@ export default function Page() {
             카드사 정책, 최대 할인 한도, 특정 조건 등에 따라 실제 금액은 달라질 수 있습니다.
           </p>
         </div>
-      </section>
+        </section>
 
-      <div className="mt-8 text-sm text-gray-600">
-        <p className="font-bold mb-2">함께 보면 좋은 계산기</p>
-        <ul className="list-disc ml-5 space-y-1">
-          <li><Link href="/jeonse-vs-rent">전세 vs 월세 계산기</Link></li>
-          <li><Link href="/loan-calc">대출 상환 계산기</Link></li>
-          <li><Link href="/salary-calc">연봉 실수령 계산기</Link></li>
-          <li><Link href="/compound">복리 계산기</Link></li>
-          <li><Link href="/card-calc">카드 할인 계산기</Link></li>
-        </ul>
-      </div>
+        <RelatedCalculators />
 
       {/* 하단 버튼 */}
       <div className="mt-10 text-center">

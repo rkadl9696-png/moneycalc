@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import RelatedCalculators from "../components/RelatedCalculators";
 
 const formatMoney = (manwon: number) => {
   const rounded = Math.round(manwon);
@@ -202,20 +203,11 @@ export default function Page() {
             복리는 수익이 다시 원금처럼 작동하기 때문에 기간이 길어질수록 수익이 누적되는 효과가 커질 수 있습니다.
           </p>
         </div>
-      </section>
+        </section>
 
-      <div className="mt-8 text-sm text-gray-600">
-        <p className="font-bold mb-2">함께 보면 좋은 계산기</p>
-        <ul className="list-disc ml-5 space-y-1">
-          <li><Link href="/jeonse-vs-rent">전세 vs 월세 계산기</Link></li>
-          <li><Link href="/loan-calc">대출 상환 계산기</Link></li>
-          <li><Link href="/salary-calc">연봉 실수령 계산기</Link></li>
-          <li><Link href="/compound">복리 계산기</Link></li>
-          <li><Link href="/card-calc">카드 할인 계산기</Link></li>
-        </ul>
-      </div>
-      
-      <div className="mt-10 text-center">
+        <RelatedCalculators />
+        
+        <div className="mt-10 text-center">
         <Link
           href="/"
           className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700"
