@@ -24,8 +24,11 @@ export default function Page() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link href="/" className="inline-block mb-6 text-base font-semibold text-blue-600 hover:text-blue-800">
-        ← 메인으로 돌아가기
+      <Link
+        href="/"
+        className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors"
+      >
+        ← 계산기 목록
       </Link>
 
       <h1 className="text-2xl font-bold mb-2">이자 계산기</h1>

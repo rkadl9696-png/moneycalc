@@ -27,9 +27,9 @@ export default function Page() {
 
       <Link
         href="/"
-        className="inline-block mb-6 text-base font-semibold text-blue-600 hover:text-blue-800"
+        className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors"
       >
-        ← 메인으로 돌아가기
+        ← 계산기 목록
       </Link>
 
       <h1 className="text-2xl font-bold mb-2">카드 할인 계산기</h1>
