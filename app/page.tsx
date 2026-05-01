@@ -31,6 +31,24 @@ const calculators = [
     title: "카드 할인 계산기",
     desc: "할인 적용 후 실제 결제 금액 확인",
   },
+  {
+    href: "/interest-calc",
+    icon: "🏦",
+    title: "이자 계산기",
+    desc: "예금 이자와 세후 수령액 바로 계산",
+  },
+  {
+    href: "/savings-calc",
+    icon: "🐷",
+    title: "적금 계산기",
+    desc: "매월 납입 시 만기 수령액 계산",
+  },
+  {
+    href: "/jeonse-loan-calc",
+    icon: "🔑",
+    title: "전세대출 계산기",
+    desc: "전세대출 월 이자와 총 이자 부담 계산",
+  },
 ];
 
 export default function Home() {

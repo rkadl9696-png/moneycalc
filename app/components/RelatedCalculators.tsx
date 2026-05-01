@@ -10,6 +10,9 @@ export default function RelatedCalculators() {
         <li><Link href="/salary-calc">연봉 실수령 계산기</Link></li>
         <li><Link href="/compound">복리 계산기</Link></li>
         <li><Link href="/card-calc">카드 할인 계산기</Link></li>
+        <li><Link href="/interest-calc">이자 계산기</Link></li>
+        <li><Link href="/savings-calc">적금 계산기</Link></li>
+        <li><Link href="/jeonse-loan-calc">전세대출 계산기</Link></li>
       </ul>
     </div>
   );
