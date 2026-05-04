@@ -11,6 +11,7 @@ const calculators = [
   { href: "/jeonse-loan-calc", icon: "🔑", title: "전세대출 계산기" },
   { href: "/cheongak-calc", icon: "🏢", title: "청약 가점 계산기" },
   { href: "/severance-calc", icon: "💼", title: "퇴직금 계산기" },
+  { href: "/unemployment-calc", icon: "📋", title: "실업급여 계산기" },
 ];
 
 export default function RelatedCalculators() {

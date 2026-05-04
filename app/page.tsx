@@ -18,6 +18,7 @@ const categories = [
       { href: "/interest-calc", icon: "🏦", title: "이자 계산기", desc: "예금 이자와 세후 수령액 바로 계산", hot: false },
       { href: "/savings-calc", icon: "🐷", title: "적금 계산기", desc: "매월 납입 시 만기 수령액 계산", hot: false },
       { href: "/severance-calc", icon: "💼", title: "퇴직금 계산기", desc: "입사일·퇴사일 입력으로 세전·세후 퇴직금 계산", hot: false },
+      { href: "/unemployment-calc", icon: "📋", title: "실업급여 계산기", desc: "가입기간·평균임금으로 실업급여 수령액 계산", hot: false },
     ],
   },
   {
