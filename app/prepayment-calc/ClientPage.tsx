@@ -116,7 +116,7 @@ export default function ClientPage() {
 
         {r && !r.error && (
           <p className="text-xs text-blue-600 mb-4">
-            만기일: {r.maturity.toLocaleDateString("ko-KR")}
+            만기일: {r.maturity?.toLocaleDateString("ko-KR")}
           </p>
         )}
 
@@ -137,7 +137,7 @@ export default function ClientPage() {
             className="w-full border p-2 rounded"
           />
           {r && !r.error && (
-            <p className="text-xs text-blue-600 mt-1">{manwon(r.prepayAmount)}</p>
+            <p className="text-xs text-blue-600 mt-1">{r.prepayAmount != null ? manwon(r.prepayAmount) : ""}</p>
           )}
         </div>
 
@@ -170,15 +170,15 @@ export default function ClientPage() {
             <div className="flex flex-col gap-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-600">경과기간 (실행일 → 상환일)</span>
-                <span className="font-medium">{formatPeriod(r.elapsedDays)}</span>
+                <span className="font-medium">{formatPeriod(r.elapsedDays ?? 0)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">잔여기간 (상환일 → 만기일)</span>
-                <span className="font-medium">{formatPeriod(r.remainingDays)}</span>
+                <span className="font-medium">{formatPeriod(r.remainingDays ?? 0)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">전체 대출기간</span>
-                <span className="font-medium">{formatPeriod(r.totalDays)}</span>
+                <span className="font-medium">{formatPeriod(r.totalDays ?? 0)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">잔여기간 비율</span>
@@ -207,7 +207,7 @@ export default function ClientPage() {
             <section className="bg-green-50 border border-green-200 rounded-lg p-5 mb-8">
               <p className="font-bold text-green-700 text-lg">✅ 중도상환수수료 면제</p>
               <p className="text-sm text-green-600 mt-2">
-                대출 실행 후 <strong>{formatPeriod(r.elapsedDays)}</strong> 경과로
+                대출 실행 후 <strong>{formatPeriod(r.elapsedDays ?? 0)}</strong> 경과로
                 3년 면제 기준을 충족합니다.
               </p>
               <p className="text-xs text-green-500 mt-2">
@@ -221,7 +221,7 @@ export default function ClientPage() {
               <div className="flex flex-col gap-2 text-sm mb-4">
                 <div className="flex justify-between">
                   <span className="text-gray-600">중도상환 금액</span>
-                  <span className="font-medium">{manwon(r.prepayAmount)}</span>
+                  <span className="font-medium">{manwon(r.prepayAmount ?? 0)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">수수료율</span>
@@ -235,15 +235,15 @@ export default function ClientPage() {
 
               <div className="p-4 bg-white rounded border">
                 <p className="text-sm text-gray-500 mb-1">중도상환수수료</p>
-                <p className="text-2xl font-bold text-blue-700">{won(r.fee)}</p>
+                <p className="text-2xl font-bold text-blue-700">{won(r.fee ?? 0)}</p>
                 <p className="text-xs text-gray-400 mt-1">
-                  {manwon(r.prepayAmount)} × {feeRate}% × {r.remainingRatio}%
+                  {manwon(r.prepayAmount ?? 0)} × {feeRate}% × {r.remainingRatio}%
                 </p>
               </div>
 
               <div className="mt-3 p-3 bg-orange-50 border border-orange-200 rounded text-sm">
                 <p className="font-medium text-orange-700">
-                  3년 면제까지 {formatPeriod(EXEMPTION_DAYS - r.elapsedDays)} 남았습니다.
+                  3년 면제까지 {formatPeriod(EXEMPTION_DAYS - (r.elapsedDays ?? 0))} 남았습니다.
                 </p>
                 <p className="text-xs text-orange-500 mt-0.5">
                   {new Date(new Date(loanStartDate).setFullYear(new Date(loanStartDate).getFullYear() + 3))
