@@ -58,11 +58,11 @@ export default function Home() {
 
         {/* 헤더 */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold mb-3">💸 계산기 모음</h1>
+          <h1 className="text-3xl font-bold mb-3">🧮 계산기 모음</h1>
           <p className="text-gray-500 text-base">
-            전세, 대출, 연봉, 복리, 카드 할인까지
+            금융, 세금, 건강까지
             <br />
-            내 돈과 관련된 모든 계산을 한 번에
+            생활에 필요한 모든 계산을 한 번에
           </p>
         </div>
 
