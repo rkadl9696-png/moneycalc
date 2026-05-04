@@ -7,6 +7,7 @@ const categories = [
       { href: "/jeonse-vs-rent", icon: "🏠", title: "전세 vs 월세 계산기", desc: "전세와 월세 중 어떤 선택이 더 유리한지 바로 계산", hot: true },
       { href: "/jeonse-loan-calc", icon: "🔑", title: "전세대출 계산기", desc: "전세대출 월 이자와 총 이자 부담 계산", hot: false },
       { href: "/loan-calc", icon: "💳", title: "대출 상환 계산기", desc: "원리금균등 vs 원금균등, 총 이자 차이 비교", hot: false },
+      { href: "/cheongak-calc", icon: "🏢", title: "청약 가점 계산기", desc: "무주택기간·부양가족·통장기간으로 내 청약 점수 계산", hot: false },
     ],
   },
   {
