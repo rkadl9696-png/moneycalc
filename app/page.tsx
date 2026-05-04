@@ -25,6 +25,12 @@ const categories = [
     ],
   },
   {
+    label: "💸 세금",
+    items: [
+      { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기", desc: "증여 금액·관계 입력으로 공제 후 납부세액 계산", hot: false },
+    ],
+  },
+  {
     label: "🛍️ 소비",
     items: [
       { href: "/card-calc", icon: "🎫", title: "카드 할인 계산기", desc: "할인 적용 후 실제 결제 금액 확인", hot: false },
