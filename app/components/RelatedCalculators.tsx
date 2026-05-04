@@ -19,6 +19,7 @@ const calculators = [
   { href: "/capital-gains-calc", icon: "🏡", title: "양도소득세 계산기" },
   { href: "/income-tax-calc", icon: "📊", title: "종합소득세 계산기" },
   { href: "/mortgage-calc", icon: "🏠", title: "주택담보대출 계산기" },
+  { href: "/prepayment-calc", icon: "💰", title: "중도상환수수료 계산기" },
 ];
 
 export default function RelatedCalculators() {

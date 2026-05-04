@@ -10,6 +10,7 @@ const categories = [
       { href: "/cheongak-calc", icon: "🏢", title: "청약 가점 계산기", desc: "무주택기간·부양가족·통장기간으로 내 청약 점수 계산", hot: false },
       { href: "/capital-gains-calc", icon: "🏡", title: "양도소득세 계산기", desc: "취득가액·양도가액·보유기간으로 양도세 계산", hot: false },
       { href: "/mortgage-calc", icon: "🏠", title: "주택담보대출 계산기", desc: "원리금균등·원금균등 방식별 월 상환액·총 이자 계산", hot: false },
+      { href: "/prepayment-calc", icon: "💰", title: "중도상환수수료 계산기", desc: "대출 실행일·상환일 입력으로 중도상환 수수료 계산", hot: false },
     ],
   },
   {
