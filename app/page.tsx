@@ -29,6 +29,7 @@ const categories = [
     label: "💸 세금",
     items: [
       { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기", desc: "증여 금액·관계 입력으로 공제 후 납부세액 계산", hot: false },
+      { href: "/income-tax-calc", icon: "📊", title: "종합소득세 계산기", desc: "연간 소득과 종류 입력으로 종합소득세 계산", hot: false },
     ],
   },
   {
