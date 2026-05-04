@@ -22,6 +22,7 @@ const calculators = [
   { href: "/prepayment-calc", icon: "💰", title: "중도상환수수료 계산기" },
   { href: "/parental-leave-calc", icon: "👶", title: "육아휴직급여 계산기" },
   { href: "/exchange-calc", icon: "💱", title: "환율 계산기" },
+  { href: "/stock-calc", icon: "📈", title: "주식 수익률 계산기" },
 ];
 
 export default function RelatedCalculators() {
