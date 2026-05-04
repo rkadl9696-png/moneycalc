@@ -21,6 +21,7 @@ const categories = [
       { href: "/unemployment-calc", icon: "📋", title: "실업급여 계산기", desc: "가입기간·평균임금으로 실업급여 수령액 계산", hot: false },
       { href: "/mincalc", icon: "💵", title: "최저시급 계산기", desc: "2026년 최저시급 기준 시급·일급·주급·월급 계산", hot: false },
       { href: "/weekly-holiday-calc", icon: "📅", title: "주휴수당 계산기", desc: "주당 근로시간 입력으로 주·월 주휴수당 계산", hot: false },
+      { href: "/insurance-calc", icon: "🛡️", title: "4대보험 계산기", desc: "월급 입력으로 근로자·사업주 4대보험 공제액 계산", hot: false },
     ],
   },
   {

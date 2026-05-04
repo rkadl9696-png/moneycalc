@@ -14,6 +14,7 @@ const calculators = [
   { href: "/unemployment-calc", icon: "📋", title: "실업급여 계산기" },
   { href: "/mincalc", icon: "💵", title: "최저시급 계산기" },
   { href: "/weekly-holiday-calc", icon: "📅", title: "주휴수당 계산기" },
+  { href: "/insurance-calc", icon: "🛡️", title: "4대보험 계산기" },
 ];
 
 export default function RelatedCalculators() {
