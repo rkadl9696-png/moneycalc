@@ -38,6 +38,12 @@ const categories = [
     ],
   },
   {
+    label: "🏃 건강",
+    items: [
+      { href: "/bmi-calc", icon: "⚖️", title: "BMI 계산기", desc: "키·몸무게로 체질량지수와 정상 체중 범위 계산", hot: false },
+    ],
+  },
+  {
     label: "🛍️ 소비",
     items: [
       { href: "/card-calc", icon: "🎫", title: "카드 할인 계산기", desc: "할인 적용 후 실제 결제 금액 확인", hot: false },
