@@ -18,6 +18,7 @@ const calculators = [
   { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기" },
   { href: "/capital-gains-calc", icon: "🏡", title: "양도소득세 계산기" },
   { href: "/income-tax-calc", icon: "📊", title: "종합소득세 계산기" },
+  { href: "/mortgage-calc", icon: "🏠", title: "주택담보대출 계산기" },
 ];
 
 export default function RelatedCalculators() {
