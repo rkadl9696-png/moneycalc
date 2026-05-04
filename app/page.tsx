@@ -20,6 +20,7 @@ const categories = [
       { href: "/compound", icon: "📈", title: "복리 계산기", desc: "투자 수익이 얼마나 불어나는지 계산", hot: false },
       { href: "/interest-calc", icon: "🏦", title: "이자 계산기", desc: "예금 이자와 세후 수령액 바로 계산", hot: false },
       { href: "/savings-calc", icon: "🐷", title: "적금 계산기", desc: "매월 납입 시 만기 수령액 계산", hot: false },
+      { href: "/exchange-calc", icon: "💱", title: "환율 계산기", desc: "환율 직접 입력으로 원화↔외화 수수료 포함 환전액 계산", hot: false },
       { href: "/severance-calc", icon: "💼", title: "퇴직금 계산기", desc: "입사일·퇴사일 입력으로 세전·세후 퇴직금 계산", hot: false },
       { href: "/unemployment-calc", icon: "📋", title: "실업급여 계산기", desc: "가입기간·평균임금으로 실업급여 수령액 계산", hot: false },
       { href: "/mincalc", icon: "💵", title: "최저시급 계산기", desc: "2026년 최저시급 기준 시급·일급·주급·월급 계산", hot: false },
