@@ -8,6 +8,7 @@ const categories = [
       { href: "/jeonse-loan-calc", icon: "🔑", title: "전세대출 계산기", desc: "전세대출 월 이자와 총 이자 부담 계산", hot: false },
       { href: "/loan-calc", icon: "💳", title: "대출 상환 계산기", desc: "원리금균등 vs 원금균등, 총 이자 차이 비교", hot: false },
       { href: "/cheongak-calc", icon: "🏢", title: "청약 가점 계산기", desc: "무주택기간·부양가족·통장기간으로 내 청약 점수 계산", hot: false },
+      { href: "/capital-gains-calc", icon: "🏡", title: "양도소득세 계산기", desc: "취득가액·양도가액·보유기간으로 양도세 계산", hot: false },
     ],
   },
   {

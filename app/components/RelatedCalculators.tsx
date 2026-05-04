@@ -16,6 +16,7 @@ const calculators = [
   { href: "/weekly-holiday-calc", icon: "📅", title: "주휴수당 계산기" },
   { href: "/insurance-calc", icon: "🛡️", title: "4대보험 계산기" },
   { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기" },
+  { href: "/capital-gains-calc", icon: "🏡", title: "양도소득세 계산기" },
 ];
 
 export default function RelatedCalculators() {
