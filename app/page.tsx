@@ -58,7 +58,7 @@ export default function Home() {
 
         {/* 헤더 */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold mb-3">💸 금융 계산기 모음</h1>
+          <h1 className="text-3xl font-bold mb-3">💸 계산기 모음</h1>
           <p className="text-gray-500 text-base">
             전세, 대출, 연봉, 복리, 카드 할인까지
             <br />
