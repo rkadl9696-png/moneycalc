@@ -75,7 +75,8 @@ export default function ClientPage() {
             <div className="flex items-center gap-2">
               <input
                 type="number" min={100} max={250} value={height}
-                onChange={(e) => setHeight(Math.min(250, Math.max(100, Number(e.target.value))))}
+                onChange={(e) => setHeight(Number(e.target.value))}
+                onBlur={(e) => setHeight(Math.min(250, Math.max(100, Number(e.target.value) || 100)))}
                 className="w-full border p-2 rounded"
               />
               <span className="text-sm text-gray-500 shrink-0">cm</span>
@@ -86,7 +87,8 @@ export default function ClientPage() {
             <div className="flex items-center gap-2">
               <input
                 type="number" min={20} max={300} value={weight}
-                onChange={(e) => setWeight(Math.min(300, Math.max(20, Number(e.target.value))))}
+                onChange={(e) => setWeight(Number(e.target.value))}
+                onBlur={(e) => setWeight(Math.min(300, Math.max(20, Number(e.target.value) || 20)))}
                 className="w-full border p-2 rounded"
               />
               <span className="text-sm text-gray-500 shrink-0">kg</span>
