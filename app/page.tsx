@@ -41,6 +41,7 @@ const categories = [
     label: "🏃 건강",
     items: [
       { href: "/bmi-calc", icon: "⚖️", title: "BMI 계산기", desc: "키·몸무게로 체질량지수와 정상 체중 범위 계산", hot: false },
+      { href: "/calorie-calc", icon: "🔥", title: "칼로리 계산기", desc: "성별·나이·활동 수준으로 기초대사량·일일 권장 칼로리 계산", hot: false },
     ],
   },
   {
