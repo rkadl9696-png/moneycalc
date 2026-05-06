@@ -27,6 +27,7 @@ const calculators = [
   { href: "/calorie-calc", icon: "🔥", title: "칼로리 계산기" },
   { href: "/bodyfat-calc", icon: "📏", title: "체지방률 계산기" },
   { href: "/bmr-calc", icon: "🔋", title: "기초대사량 계산기" },
+  { href: "/due-date-calc", icon: "🤰", title: "임신 출산 예정일 계산기" },
 ];
 
 export default function RelatedCalculators() {
