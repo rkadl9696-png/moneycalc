@@ -47,6 +47,7 @@ const categories = [
       { href: "/due-date-calc", icon: "🤰", title: "임신 출산 예정일 계산기", desc: "마지막 생리 시작일로 출산 예정일·임신 주수·주요 검사 일정 계산", hot: false },
       { href: "/sleep-calc", icon: "😴", title: "수면 시간 계산기", desc: "취침·기상 시간으로 수면 사이클·권장 기상 시간·수면 부채 계산", hot: false },
       { href: "/water-calc", icon: "💧", title: "적정 음수량 계산기", desc: "몸무게·활동 수준·날씨로 하루 권장 음수량과 시간대별 스케줄 계산", hot: false },
+      { href: "/eye-rest-calc", icon: "👁️", title: "눈 건강 휴식 계산기", desc: "20-20-20 규칙 기반 스크린 시간별 눈 휴식 횟수·피로도 계산", hot: false },
     ],
   },
   {

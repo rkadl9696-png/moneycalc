@@ -30,6 +30,7 @@ const calculators = [
   { href: "/due-date-calc", icon: "🤰", title: "임신 출산 예정일 계산기" },
   { href: "/sleep-calc", icon: "😴", title: "수면 시간 계산기" },
   { href: "/water-calc", icon: "💧", title: "적정 음수량 계산기" },
+  { href: "/eye-rest-calc", icon: "👁️", title: "눈 건강 휴식 계산기" },
 ];
 
 export default function RelatedCalculators() {
