@@ -42,6 +42,7 @@ const categories = [
     items: [
       { href: "/bmi-calc", icon: "⚖️", title: "BMI 계산기", desc: "키·몸무게로 체질량지수와 정상 체중 범위 계산", hot: false },
       { href: "/calorie-calc", icon: "🔥", title: "칼로리 계산기", desc: "성별·나이·활동 수준으로 기초대사량·일일 권장 칼로리 계산", hot: false },
+      { href: "/bodyfat-calc", icon: "📏", title: "체지방률 계산기", desc: "미해군 공식으로 허리·목·엉덩이 둘레 측정만으로 체지방률 계산", hot: false },
     ],
   },
   {
