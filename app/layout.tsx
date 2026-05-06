@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -46,6 +47,18 @@ export default function RootLayout({
           `}
         </Script>
         {children}
+        <footer className="mt-16 border-t border-gray-100 py-6 text-center text-xs text-gray-400">
+          <p>
+            © 2026 계산기 모음
+            <span className="mx-2">|</span>
+            <Link href="/privacy" className="hover:text-gray-600 transition-colors">개인정보처리방침</Link>
+            <span className="mx-2">|</span>
+            <Link href="/terms" className="hover:text-gray-600 transition-colors">이용약관</Link>
+            <span className="mx-2">|</span>
+            <Link href="/about" className="hover:text-gray-600 transition-colors">소개</Link>
+          </p>
+          <p className="mt-1 text-gray-300">계산 결과는 참고용이며 실제와 다를 수 있습니다.</p>
+        </footer>
       </body>
     </html>
   );
