@@ -228,7 +228,7 @@ export default function ClientPage() {
         ))}
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/blood-pressure-calc" />
 
       <div className="mt-10 text-center">
         <Link scroll={false}

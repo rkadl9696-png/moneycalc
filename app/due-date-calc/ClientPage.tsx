@@ -289,7 +289,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/due-date-calc" />
 
       <div className="mt-10 text-center">
         <Link

@@ -228,7 +228,7 @@ export default function Page() {
         </div>
         </section>
 
-        <RelatedCalculators />
+        <RelatedCalculators current="/loan-calc" />
         
         <div className="mt-10 text-center">
         <Link

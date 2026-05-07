@@ -124,7 +124,7 @@ export default function Page() {
         </div>
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/interest-calc" />
 
       <div className="mt-10 text-center">
         <Link scroll={false}

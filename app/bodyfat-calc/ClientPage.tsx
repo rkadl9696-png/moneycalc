@@ -277,7 +277,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/bodyfat-calc" />
 
       <div className="mt-10 text-center">
         <Link

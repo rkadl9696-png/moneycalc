@@ -156,7 +156,7 @@ export default function Page() {
         </div>
         </section>
 
-        <RelatedCalculators />
+        <RelatedCalculators current="/card-calc" />
 
       {/* 하단 버튼 */}
       <div className="mt-10 text-center">

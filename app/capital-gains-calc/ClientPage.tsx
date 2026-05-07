@@ -366,7 +366,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/capital-gains-calc" />
 
       <div className="mt-10 text-center">
         <Link

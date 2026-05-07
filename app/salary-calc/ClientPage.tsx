@@ -175,7 +175,7 @@ export default function Page() {
         </div>
         </section>
 
-        <RelatedCalculators />
+        <RelatedCalculators current="/salary-calc" />
         
         <div className="mt-10 text-center">
         <Link

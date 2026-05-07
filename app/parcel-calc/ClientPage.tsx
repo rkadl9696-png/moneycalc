@@ -200,7 +200,7 @@ export default function ClientPage() {
         ))}
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/parcel-calc" />
 
       <div className="mt-10 text-center">
         <Link scroll={false}

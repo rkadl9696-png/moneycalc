@@ -189,7 +189,7 @@ export default function ClientPage() {
         </p>
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/lotto-calc" />
 
       <div className="mt-10 text-center">
         <Link

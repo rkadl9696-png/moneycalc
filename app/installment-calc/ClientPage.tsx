@@ -206,7 +206,7 @@ export default function ClientPage() {
         </p>
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/installment-calc" />
 
       <div className="mt-10 text-center">
         <Link

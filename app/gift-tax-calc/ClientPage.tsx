@@ -337,7 +337,7 @@ export default function ClientPage() {
         </div>
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/gift-tax-calc" />
 
       <div className="mt-10 text-center">
         <Link

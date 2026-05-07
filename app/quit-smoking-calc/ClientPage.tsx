@@ -184,7 +184,7 @@ export default function ClientPage() {
         ))}
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/quit-smoking-calc" />
 
       <div className="mt-10 text-center">
         <Link scroll={false}

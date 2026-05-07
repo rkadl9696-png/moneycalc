@@ -154,7 +154,7 @@ export default function ClientPage() {
         ))}
       </section>
 
-      <RelatedCalculators />
+      <RelatedCalculators current="/rent-yield-calc" />
 
       <div className="mt-10 text-center">
         <Link scroll={false}
