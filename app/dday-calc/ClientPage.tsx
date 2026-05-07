@@ -32,14 +32,18 @@ function getDdayColor(d: number): string {
 }
 
 const today = new Date();
-const todayStr = today.toISOString().split("T")[0];
+const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
+function localDateStr(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
 
 function getNextOccurrence(month: number, day: number): string {
   const now = new Date();
   let year = now.getFullYear();
   const target = new Date(year, month - 1, day);
   if (target <= now) year++;
-  return new Date(year, month - 1, day).toISOString().split("T")[0];
+  return localDateStr(new Date(year, month - 1, day));
 }
 
 const INITIAL_ITEMS: DdayItem[] = [
