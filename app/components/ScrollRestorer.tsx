@@ -33,8 +33,9 @@ export default function ScrollRestorer() {
     };
   }, [pathname]);
 
-  // 복원: Next.js scroll-to-top을 덮어쓰기 위해 여러 번 시도
+  // 복원: 메인 페이지(/)에서만 스크롤 위치 복원
   useEffect(() => {
+    if (pathname !== "/") return;
     const raw = sessionStorage.getItem(`scroll:${pathname}`);
     if (!raw) return;
     const y = Number(raw);
