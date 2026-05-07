@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import RelatedCalculators from "../components/RelatedCalculators";
 
@@ -51,6 +51,10 @@ export default function ClientPage() {
   }, [systolic, diastolic, age, measurements, sys2, dia2, sys3, dia3]);
 
   const inputClass = "w-full border rounded p-2 text-right";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

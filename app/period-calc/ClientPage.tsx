@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import RelatedCalculators from "../components/RelatedCalculators";
 
@@ -57,6 +57,10 @@ export default function ClientPage() {
     if (d > 0) return `D-${d}`;
     return `D+${Math.abs(d)}`;
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

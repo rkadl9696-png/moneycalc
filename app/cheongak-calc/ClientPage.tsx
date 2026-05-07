@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import RelatedCalculators from "../components/RelatedCalculators";
 
@@ -43,6 +43,10 @@ export default function ClientPage() {
   const subscriptionScore = getSubscriptionScore(subscriptionYears);
   const totalScore = homelessScore + dependentScore + subscriptionScore;
   const grade = getGrade(totalScore);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

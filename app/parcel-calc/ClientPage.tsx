@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import RelatedCalculators from "../components/RelatedCalculators";
 
@@ -38,6 +38,10 @@ export default function ClientPage() {
     const totalPrice = basePrice + remoteExtra;
     return { volumeWeight, appliedWeight, basePrice, remoteExtra, totalPrice };
   }, [realWeight, width, height, depth, isRemote]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

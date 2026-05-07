@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import RelatedCalculators from "../components/RelatedCalculators";
 
@@ -40,6 +40,10 @@ export default function ClientPage() {
     const intensity = getIntensity(ex.met);
     return { calories, fatBurn, met: ex.met, intensity };
   }, [weight, duration, selectedIdx]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import RelatedCalculators from "../components/RelatedCalculators";
 
@@ -50,6 +50,10 @@ export default function ClientPage() {
     { label: "비만",    range: "25~29.9", color: "bg-orange-400", flex: 1.5 },
     { label: "고도비만",range: "30~", color: "bg-red-400",    flex: 1 },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="max-w-2xl mx-auto p-6">
