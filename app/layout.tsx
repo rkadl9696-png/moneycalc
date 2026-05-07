@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import Link from "next/link";
 import ScrollRestorer from "./components/ScrollRestorer";
+import ScrollToTop from "./components/ScrollToTop";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -57,6 +58,7 @@ export default function RootLayout({
           `}
         </Script>
         <ScrollRestorer />
+        <ScrollToTop />
         <header className="border-b border-gray-100 bg-white sticky top-0 z-50">
           <div className="max-w-2xl mx-auto px-6 py-3">
             <Link href="/" scroll={false} className="text-lg font-bold text-gray-800 hover:text-blue-600 transition-colors">
