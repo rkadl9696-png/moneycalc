@@ -68,12 +68,17 @@ const categories = [
       { href: "/unit-calc", icon: "📐", title: "단위 변환 계산기", desc: "길이·무게·온도·면적·속도 단위 변환", hot: false },
       { href: "/difficulty-calc", icon: "🎯", title: "난이도 계산기", desc: "업무·프로젝트 복잡도·마감·전문성 기반 난이도 지수 계산", hot: false },
       { href: "/parcel-calc", icon: "📦", title: "택배 무게 계산기", desc: "실제 무게·박스 크기로 부피무게·택배 요금 계산", hot: false },
+      { href: "/pet-age-calc", icon: "🐾", title: "반려동물 나이 계산기", desc: "개·고양이 나이를 사람 나이로 환산", hot: false },
+      { href: "/lotto-calc", icon: "🎰", title: "로또 확률 계산기", desc: "1~5등 당첨 확률과 구매 매수별 기대 당첨 횟수 계산", hot: false },
+      { href: "/time-calc", icon: "⏱️", title: "시간 계산기", desc: "두 시간의 차이 계산, 시간 더하기·빼기", hot: false },
     ],
   },
   {
     label: "🛍️ 소비",
     items: [
       { href: "/card-calc", icon: "🎫", title: "카드 할인 계산기", desc: "할인 적용 후 실제 결제 금액 확인", hot: false },
+      { href: "/tip-calc", icon: "💵", title: "팁 계산기", desc: "청구 금액·팁 비율·인원 입력으로 팁 금액과 1인당 부담액 계산", hot: false },
+      { href: "/installment-calc", icon: "💳", title: "할부 계산기", desc: "구매 금액·할부 개월·이자율로 월 할부금과 총 이자 계산", hot: false },
     ],
   },
 ];

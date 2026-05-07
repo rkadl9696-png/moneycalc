@@ -46,6 +46,11 @@ const calculators = [
   { href: "/parcel-calc", icon: "📦", title: "택배 무게 계산기" },
   { href: "/electricity-calc", icon: "⚡", title: "전기요금 계산기" },
   { href: "/fuel-calc", icon: "⛽", title: "연료비 계산기" },
+  { href: "/pet-age-calc", icon: "🐾", title: "반려동물 나이 계산기" },
+  { href: "/lotto-calc", icon: "🎰", title: "로또 확률 계산기" },
+  { href: "/tip-calc", icon: "💵", title: "팁 계산기" },
+  { href: "/installment-calc", icon: "💳", title: "할부 계산기" },
+  { href: "/time-calc", icon: "⏱️", title: "시간 계산기" },
 ];
 
 export default function RelatedCalculators() {
