@@ -28,6 +28,11 @@ const categories = [
       { href: "/weekly-holiday-calc", icon: "📅", title: "주휴수당 계산기", desc: "주당 근로시간 입력으로 주·월 주휴수당 계산", hot: false },
       { href: "/insurance-calc", icon: "🛡️", title: "4대보험 계산기", desc: "월급 입력으로 근로자·사업주 4대보험 공제액 계산", hot: false },
       { href: "/parental-leave-calc", icon: "👶", title: "육아휴직급여 계산기", desc: "통상임금·기간 입력으로 월별 수령액·사후지급금 계산", hot: false },
+      { href: "/pension-calc", icon: "🏦", title: "연금 계산기", desc: "월 납입액·수익률로 은퇴 시 총 적립액과 월 수령액 복리 계산", hot: false },
+      { href: "/rent-yield-calc", icon: "🏘️", title: "월세 수익률 계산기", desc: "매매가·보증금·월세로 총 수익률·실투자금 수익률·전월세 전환율 계산", hot: false },
+      { href: "/realestate-yield-calc", icon: "🏗️", title: "부동산 수익률 계산기", desc: "매수가·매도가·보유기간으로 매매차익·연평균 수익률 계산", hot: false },
+      { href: "/electricity-calc", icon: "⚡", title: "전기요금 계산기", desc: "월 사용량(kWh)으로 한국전력 누진제 기준 전기요금 계산", hot: false },
+      { href: "/fuel-calc", icon: "⛽", title: "연료비 계산기", desc: "휘발유·경유·LPG·전기 연비와 주행 거리로 연료비 계산", hot: false },
     ],
   },
   {
@@ -48,6 +53,21 @@ const categories = [
       { href: "/sleep-calc", icon: "😴", title: "수면 시간 계산기", desc: "취침·기상 시간으로 수면 사이클·권장 기상 시간·수면 부채 계산", hot: false },
       { href: "/water-calc", icon: "💧", title: "적정 음수량 계산기", desc: "몸무게·활동 수준·날씨로 하루 권장 음수량과 시간대별 스케줄 계산", hot: false },
       { href: "/eye-rest-calc", icon: "👁️", title: "눈 건강 휴식 계산기", desc: "20-20-20 규칙 기반 스크린 시간별 눈 휴식 횟수·피로도 계산", hot: false },
+      { href: "/blood-pressure-calc", icon: "❤️", title: "혈압 계산기", desc: "수축기·이완기 혈압으로 대한고혈압학회 기준 단계 판정·맥압·평균동맥압 계산", hot: false },
+      { href: "/exercise-calc", icon: "🏃", title: "운동 소모 칼로리 계산기", desc: "체중·운동 종류·시간으로 MET 기반 소모 칼로리·지방 연소량 계산", hot: false },
+      { href: "/period-calc", icon: "🌸", title: "생리 주기 계산기", desc: "마지막 생리일·주기로 다음 생리 예정일·배란일·가임기 계산", hot: false },
+      { href: "/quit-smoking-calc", icon: "🚭", title: "금연 계산기", desc: "금연 시작일·흡연량으로 절약 금액·피우지 않은 담배·되찾은 시간 계산", hot: false },
+      { href: "/alcohol-calc", icon: "🍺", title: "음주량 계산기", desc: "음료 종류·용량·잔 수로 순수 알코올량·WHO 위험도·분해 시간 계산", hot: false },
+    ],
+  },
+  {
+    label: "🗓️ 생활",
+    items: [
+      { href: "/age-calc", icon: "🎂", title: "나이 계산기", desc: "생년월일로 만 나이·한국 나이·띠·별자리·다음 생일까지 계산", hot: false },
+      { href: "/dday-calc", icon: "📅", title: "D-day 계산기", desc: "목표 날짜까지 D-day 카운트다운 계산", hot: false },
+      { href: "/unit-calc", icon: "📐", title: "단위 변환 계산기", desc: "길이·무게·온도·면적·속도 단위 변환", hot: false },
+      { href: "/difficulty-calc", icon: "🎯", title: "난이도 계산기", desc: "업무·프로젝트 복잡도·마감·전문성 기반 난이도 지수 계산", hot: false },
+      { href: "/parcel-calc", icon: "📦", title: "택배 무게 계산기", desc: "실제 무게·박스 크기로 부피무게·택배 요금 계산", hot: false },
     ],
   },
   {

@@ -31,6 +31,21 @@ const calculators = [
   { href: "/sleep-calc", icon: "😴", title: "수면 시간 계산기" },
   { href: "/water-calc", icon: "💧", title: "적정 음수량 계산기" },
   { href: "/eye-rest-calc", icon: "👁️", title: "눈 건강 휴식 계산기" },
+  { href: "/blood-pressure-calc", icon: "❤️", title: "혈압 계산기" },
+  { href: "/exercise-calc", icon: "🏃", title: "운동 소모 칼로리 계산기" },
+  { href: "/period-calc", icon: "🌸", title: "생리 주기 계산기" },
+  { href: "/quit-smoking-calc", icon: "🚭", title: "금연 계산기" },
+  { href: "/alcohol-calc", icon: "🍺", title: "음주량 계산기" },
+  { href: "/age-calc", icon: "🎂", title: "나이 계산기" },
+  { href: "/dday-calc", icon: "📅", title: "D-day 계산기" },
+  { href: "/unit-calc", icon: "📐", title: "단위 변환 계산기" },
+  { href: "/pension-calc", icon: "🏦", title: "연금 계산기" },
+  { href: "/rent-yield-calc", icon: "🏘️", title: "월세 수익률 계산기" },
+  { href: "/realestate-yield-calc", icon: "🏗️", title: "부동산 수익률 계산기" },
+  { href: "/difficulty-calc", icon: "🎯", title: "난이도 계산기" },
+  { href: "/parcel-calc", icon: "📦", title: "택배 무게 계산기" },
+  { href: "/electricity-calc", icon: "⚡", title: "전기요금 계산기" },
+  { href: "/fuel-calc", icon: "⛽", title: "연료비 계산기" },
 ];
 
 export default function RelatedCalculators() {
