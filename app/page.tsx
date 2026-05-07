@@ -194,7 +194,6 @@ export default function Home() {
                     <Link
                       key={calc.href}
                       href={calc.href}
-                      scroll={false}
                       className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-400 transition-all"
                     >
                       <div className="text-3xl w-12 h-12 flex items-center justify-center bg-blue-50 rounded-lg shrink-0">
