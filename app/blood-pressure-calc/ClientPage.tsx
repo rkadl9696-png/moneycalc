@@ -54,8 +54,6 @@ export default function ClientPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link scroll={false}
-        href="/" className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors">← 계산기 목록</Link>
       <h1 className="text-2xl font-bold mb-2">❤️ 혈압 계산기</h1>
       <p className="text-gray-600 mb-6">수축기·이완기 혈압을 입력하면 대한고혈압학회 기준으로 혈압 단계를 판정하고 맥압과 평균동맥압을 계산합니다.</p>
 

@@ -62,14 +62,6 @@ export default function ClientPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link
-        scroll={false}
-        href="/"
-        className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors"
-      >
-        ← 계산기 목록
-      </Link>
-
       <h1 className="text-2xl font-bold mb-2">육아휴직급여 계산기</h1>
       <p className="text-gray-600 mb-6">
         통상임금과 육아휴직 기간을 입력하면 구간별 월 수령액과 사후지급금을 계산합니다.

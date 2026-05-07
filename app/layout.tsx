@@ -57,6 +57,13 @@ export default function RootLayout({
           `}
         </Script>
         <ScrollRestorer />
+        <header className="border-b border-gray-100 bg-white sticky top-0 z-50">
+          <div className="max-w-2xl mx-auto px-6 py-3">
+            <Link href="/" scroll={false} className="text-lg font-bold text-gray-800 hover:text-blue-600 transition-colors">
+              🧮 계산기 모음
+            </Link>
+          </div>
+        </header>
         {children}
         <footer className="mt-16 border-t border-gray-100 py-6 text-center text-xs text-gray-400">
           <p>

@@ -61,14 +61,6 @@ export default function ClientPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link
-        scroll={false}
-        href="/"
-        className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors"
-      >
-        ← 계산기 목록
-      </Link>
-
       <h1 className="text-2xl font-bold mb-2">적정 음수량 계산기</h1>
       <p className="text-gray-600 mb-6">
         몸무게·활동 수준·날씨를 입력하면 하루 권장 음수량과 시간대별 음수 스케줄을 계산합니다.

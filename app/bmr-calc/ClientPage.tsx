@@ -40,14 +40,6 @@ export default function ClientPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link
-        scroll={false}
-        href="/"
-        className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors"
-      >
-        ← 계산기 목록
-      </Link>
-
       <h1 className="text-2xl font-bold mb-2">기초대사량 계산기</h1>
       <p className="text-gray-600 mb-6">
         Mifflin-St Jeor 공식으로 기초대사량(BMR)을 계산하고, 활동 수준별 일일 권장 칼로리를 확인합니다.

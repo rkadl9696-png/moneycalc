@@ -61,8 +61,6 @@ export default function ClientPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link scroll={false}
-        href="/" className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors">← 계산기 목록</Link>
       <h1 className="text-2xl font-bold mb-2">🎯 난이도 계산기</h1>
       <p className="text-gray-600 mb-6">업무나 프로젝트의 5가지 항목을 평가하면 난이도 지수를 계산합니다.</p>
 
