@@ -1,8 +1,12 @@
+"use client";
+
+import { useState, useMemo } from "react";
 import Link from "next/link";
 
 const categories = [
   {
     label: "🏠 부동산",
+    tab: "부동산",
     items: [
       { href: "/jeonse-vs-rent", icon: "🏠", title: "전세 vs 월세 계산기", desc: "전세와 월세 중 어떤 선택이 더 유리한지 바로 계산", hot: true },
       { href: "/jeonse-loan-calc", icon: "🔑", title: "전세대출 계산기", desc: "전세대출 월 이자와 총 이자 부담 계산", hot: false },
@@ -15,6 +19,7 @@ const categories = [
   },
   {
     label: "💰 급여 · 재테크",
+    tab: "급여·재테크",
     items: [
       { href: "/salary-calc", icon: "💰", title: "연봉 실수령 계산기", desc: "세후 월급이 얼마인지 바로 확인", hot: true },
       { href: "/compound", icon: "📈", title: "복리 계산기", desc: "투자 수익이 얼마나 불어나는지 계산", hot: false },
@@ -37,6 +42,7 @@ const categories = [
   },
   {
     label: "💸 세금",
+    tab: "세금",
     items: [
       { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기", desc: "증여 금액·관계 입력으로 공제 후 납부세액 계산", hot: false },
       { href: "/income-tax-calc", icon: "📊", title: "종합소득세 계산기", desc: "연간 소득과 종류 입력으로 종합소득세 계산", hot: false },
@@ -44,6 +50,7 @@ const categories = [
   },
   {
     label: "🏃 건강",
+    tab: "건강",
     items: [
       { href: "/bmi-calc", icon: "⚖️", title: "BMI 계산기", desc: "키·몸무게로 체질량지수와 정상 체중 범위 계산", hot: false },
       { href: "/calorie-calc", icon: "🔥", title: "칼로리 계산기", desc: "성별·나이·활동 수준으로 기초대사량·일일 권장 칼로리 계산", hot: false },
@@ -62,6 +69,7 @@ const categories = [
   },
   {
     label: "🗓️ 생활",
+    tab: "생활",
     items: [
       { href: "/age-calc", icon: "🎂", title: "나이 계산기", desc: "생년월일로 만 나이·한국 나이·띠·별자리·다음 생일까지 계산", hot: false },
       { href: "/dday-calc", icon: "📅", title: "D-day 계산기", desc: "목표 날짜까지 D-day 카운트다운 계산", hot: false },
@@ -75,6 +83,7 @@ const categories = [
   },
   {
     label: "🛍️ 소비",
+    tab: "소비",
     items: [
       { href: "/card-calc", icon: "🎫", title: "카드 할인 계산기", desc: "할인 적용 후 실제 결제 금액 확인", hot: false },
       { href: "/tip-calc", icon: "💵", title: "팁 계산기", desc: "청구 금액·팁 비율·인원 입력으로 팁 금액과 1인당 부담액 계산", hot: false },
@@ -83,13 +92,37 @@ const categories = [
   },
 ];
 
+const TABS = ["전체", ...categories.map((c) => c.tab)];
+
 export default function Home() {
+  const [query, setQuery] = useState("");
+  const [activeTab, setActiveTab] = useState("전체");
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+
+    return categories
+      .filter((c) => activeTab === "전체" || c.tab === activeTab)
+      .map((c) => ({
+        ...c,
+        items: c.items.filter(
+          (item) =>
+            !q ||
+            item.title.toLowerCase().includes(q) ||
+            item.desc.toLowerCase().includes(q)
+        ),
+      }))
+      .filter((c) => c.items.length > 0);
+  }, [query, activeTab]);
+
+  const totalCount = filtered.reduce((s, c) => s + c.items.length, 0);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-6 py-12">
 
         {/* 헤더 */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-3">🧮 계산기 모음</h1>
           <p className="text-gray-500 text-base">
             금융, 세금, 건강까지
@@ -98,41 +131,94 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 카테고리별 카드 */}
-        <div className="flex flex-col gap-8">
-          {categories.map((category) => (
-            <div key={category.label}>
-              <h2 className="text-sm font-bold text-gray-400 mb-3 tracking-wide">
-                {category.label}
-              </h2>
-              <div className="flex flex-col gap-3">
-                {category.items.map((calc) => (
-                  <Link
-                    key={calc.href}
-                    href={calc.href}
-                    className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-400 transition-all"
-                  >
-                    <div className="text-3xl w-12 h-12 flex items-center justify-center bg-blue-50 rounded-lg shrink-0">
-                      {calc.icon}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-base font-bold text-gray-800">{calc.title}</h3>
-                        {calc.hot && (
-                          <span className="text-xs bg-red-100 text-red-500 font-bold px-2 py-0.5 rounded-full">
-                            🔥 인기
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm text-gray-500 mt-0.5">{calc.desc}</p>
-                    </div>
-                    <div className="ml-auto text-gray-300 text-xl">›</div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+        {/* 검색창 */}
+        <div className="relative mb-4">
+          <svg
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"
+            fill="none" stroke="currentColor" strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" strokeLinecap="round" />
+          </svg>
+          <input
+            type="text"
+            placeholder="계산기 이름으로 검색..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full border border-gray-200 rounded-xl p-3 pl-12 text-sm bg-white focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+          />
+          {query && (
+            <button
+              onClick={() => setQuery("")}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+
+        {/* 카테고리 탭 */}
+        <div className="flex gap-2 overflow-x-auto pb-2 mb-6 scrollbar-hide">
+          {TABS.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`shrink-0 rounded-full px-4 py-2 text-sm font-bold transition-colors ${
+                activeTab === tab
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+            >
+              {tab}
+            </button>
           ))}
         </div>
+
+        {/* 결과 */}
+        {totalCount === 0 ? (
+          <div className="text-center py-16 text-gray-400">
+            <p className="text-4xl mb-3">🔍</p>
+            <p className="font-bold">검색 결과가 없습니다</p>
+            <p className="text-sm mt-1">다른 검색어를 입력해보세요</p>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-8">
+            {filtered.map((category) => (
+              <div key={category.label}>
+                <h2 className="text-sm font-bold text-gray-400 mb-3 tracking-wide">
+                  {category.label}
+                </h2>
+                <div className="flex flex-col gap-3">
+                  {category.items.map((calc) => (
+                    <Link
+                      key={calc.href}
+                      href={calc.href}
+                      scroll={false}
+                      className="flex items-center gap-4 bg-white border border-gray-200 rounded-xl p-5 hover:shadow-md hover:border-blue-400 transition-all"
+                    >
+                      <div className="text-3xl w-12 h-12 flex items-center justify-center bg-blue-50 rounded-lg shrink-0">
+                        {calc.icon}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-base font-bold text-gray-800">{calc.title}</h3>
+                          {calc.hot && (
+                            <span className="text-xs bg-red-100 text-red-500 font-bold px-2 py-0.5 rounded-full">
+                              🔥 인기
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-500 mt-0.5">{calc.desc}</p>
+                      </div>
+                      <div className="ml-auto text-gray-300 text-xl">›</div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* 하단 설명 */}
         <p className="text-center text-xs text-gray-400 mt-10">
