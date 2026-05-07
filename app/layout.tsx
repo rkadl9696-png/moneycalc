@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import Link from "next/link";
+import ScrollRestorer from "./components/ScrollRestorer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -55,6 +56,7 @@ export default function RootLayout({
             gtag('config', 'G-RDRPWLLGVY');
           `}
         </Script>
+        <ScrollRestorer />
         {children}
         <footer className="mt-16 border-t border-gray-100 py-6 text-center text-xs text-gray-400">
           <p>

@@ -80,7 +80,8 @@ export default function ClientPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link href="/" className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors">← 계산기 목록</Link>
+      <Link scroll={false}
+        href="/" className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors">← 계산기 목록</Link>
       <h1 className="text-2xl font-bold mb-2">📅 D-day 계산기</h1>
       <p className="text-gray-600 mb-6">목표 날짜를 입력하면 D-day를 계산합니다. 최대 10개의 이벤트를 추가하고 가까운 순서로 정렬할 수 있습니다.</p>
 
@@ -179,7 +180,8 @@ export default function ClientPage() {
       <RelatedCalculators />
 
       <div className="mt-10 text-center">
-        <Link href="/" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700">계산기 목록으로 돌아가기</Link>
+        <Link scroll={false}
+          href="/" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700">계산기 목록으로 돌아가기</Link>
       </div>
     </div>
   );

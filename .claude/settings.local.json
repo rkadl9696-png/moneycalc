@@ -4,7 +4,9 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git push *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(xargs sed -i 's|<Link\\\\n\\\\s*href=\"/\"\\\\s*\\\\nclassName=\"inline-flex|<Link scroll={false}\\\\n        href=\"/\"\\\\n        className=\"inline-flex|g')",
+      "Bash(node -e ' *)"
     ]
   }
 }

@@ -47,7 +47,8 @@ export default function ClientPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Link href="/" className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors">← 계산기 목록</Link>
+      <Link scroll={false}
+        href="/" className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors">← 계산기 목록</Link>
       <h1 className="text-2xl font-bold mb-2">🍺 음주량 계산기</h1>
       <p className="text-gray-600 mb-6">음료 종류와 용량을 입력하면 순수 알코올량(g)과 WHO 기준 위험도, 알코올 분해 시간을 계산합니다.</p>
 
@@ -220,7 +221,8 @@ export default function ClientPage() {
       <RelatedCalculators />
 
       <div className="mt-10 text-center">
-        <Link href="/" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700">계산기 목록으로 돌아가기</Link>
+        <Link scroll={false}
+          href="/" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700">계산기 목록으로 돌아가기</Link>
       </div>
     </div>
   );

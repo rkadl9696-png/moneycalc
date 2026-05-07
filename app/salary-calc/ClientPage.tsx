@@ -50,6 +50,7 @@ export default function Page() {
   return (
     <div className="max-w-2xl mx-auto p-6">
       <Link
+        scroll={false}
         href="/"
         className="inline-flex items-center gap-1 mb-6 text-sm text-gray-500 hover:text-blue-600 transition-colors"
       >
@@ -186,6 +187,7 @@ export default function Page() {
         
         <div className="mt-10 text-center">
         <Link
+          scroll={false}
           href="/"
           className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-base font-bold hover:bg-blue-700"
         >
