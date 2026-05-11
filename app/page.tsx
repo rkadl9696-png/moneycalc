@@ -49,6 +49,23 @@ const categories = [
     ],
   },
   {
+    label: "📚 교육",
+    tab: "교육",
+    items: [
+      { href: "/gpa-calc", icon: "🎓", title: "학점 계산기", desc: "과목별 성적과 학점수로 4.5·4.3 만점 평균 평점(GPA) 계산", hot: false },
+      { href: "/suneung-calc", icon: "📝", title: "수능 등급 계산기", desc: "국어·수학·영어·탐구 원점수 입력으로 과목별 수능 등급 계산", hot: false },
+      { href: "/naesin-calc", icon: "📋", title: "내신 등급 계산기", desc: "석차·전체 인원 입력으로 내신 등급과 평균 내신 계산", hot: false },
+    ],
+  },
+  {
+    label: "⚖️ 법률",
+    tab: "법률",
+    items: [
+      { href: "/alimony-calc", icon: "⚖️", title: "위자료 계산기", desc: "혼인 기간·유책 사유·자녀 수 입력으로 법원 기준 위자료 추정액 계산", hot: false },
+      { href: "/statute-calc", icon: "⏰", title: "소멸시효 계산기", desc: "채권 종류와 기산일 입력으로 소멸시효 만료일과 남은 일수 계산", hot: false },
+    ],
+  },
+  {
     label: "🏃 건강",
     tab: "건강",
     items: [
@@ -65,6 +82,8 @@ const categories = [
       { href: "/period-calc", icon: "🌸", title: "생리 주기 계산기", desc: "마지막 생리일·주기로 다음 생리 예정일·배란일·가임기 계산", hot: false },
       { href: "/quit-smoking-calc", icon: "🚭", title: "금연 계산기", desc: "금연 시작일·흡연량으로 절약 금액·피우지 않은 담배·되찾은 시간 계산", hot: false },
       { href: "/alcohol-calc", icon: "🍺", title: "음주량 계산기", desc: "음료 종류·용량·잔 수로 순수 알코올량·WHO 위험도·분해 시간 계산", hot: false },
+      { href: "/medicine-calc", icon: "💊", title: "약 용량 계산기", desc: "체중·약물 종류 입력으로 mg/kg 기준 1회·1일 최대 복용량 계산", hot: false },
+      { href: "/hospital-calc", icon: "🏥", title: "병원비 계산기", desc: "의료기관·진료 종류·총 진료비 입력으로 건강보험 본인부담금 계산", hot: false },
     ],
   },
   {
@@ -79,6 +98,9 @@ const categories = [
       { href: "/pet-age-calc", icon: "🐾", title: "반려동물 나이 계산기", desc: "개·고양이 나이를 사람 나이로 환산", hot: false },
       { href: "/lotto-calc", icon: "🎰", title: "로또 확률 계산기", desc: "1~5등 당첨 확률과 구매 매수별 기대 당첨 횟수 계산", hot: false },
       { href: "/time-calc", icon: "⏱️", title: "시간 계산기", desc: "두 시간의 차이 계산, 시간 더하기·빼기", hot: false },
+      { href: "/ev-charge-calc", icon: "🔋", title: "전기차 충전 비용 계산기", desc: "배터리 용량·충전 방식으로 충전 비용·시간·내연기관차 대비 절약액 계산", hot: false },
+      { href: "/solar-calc", icon: "☀️", title: "태양광 수익 계산기", desc: "설치 용량·지역으로 태양광 월 수익·연 수익·투자 회수 기간 계산", hot: false },
+      { href: "/subscription-calc", icon: "📱", title: "구독 비용 계산기", desc: "넷플릭스·유튜브 등 구독 서비스 추가로 월 총합·연 총합·비율 확인", hot: false },
     ],
   },
   {

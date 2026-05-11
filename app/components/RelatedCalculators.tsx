@@ -32,6 +32,15 @@ const CATEGORIES: Record<string, { href: string; icon: string; title: string }[]
     { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기" },
     { href: "/income-tax-calc", icon: "📊", title: "종합소득세 계산기" },
   ],
+  "교육": [
+    { href: "/gpa-calc", icon: "🎓", title: "학점 계산기" },
+    { href: "/suneung-calc", icon: "📝", title: "수능 등급 계산기" },
+    { href: "/naesin-calc", icon: "📋", title: "내신 등급 계산기" },
+  ],
+  "법률": [
+    { href: "/alimony-calc", icon: "⚖️", title: "위자료 계산기" },
+    { href: "/statute-calc", icon: "⏰", title: "소멸시효 계산기" },
+  ],
   "건강": [
     { href: "/bmi-calc", icon: "⚖️", title: "BMI 계산기" },
     { href: "/calorie-calc", icon: "🔥", title: "칼로리 계산기" },
@@ -46,6 +55,8 @@ const CATEGORIES: Record<string, { href: string; icon: string; title: string }[]
     { href: "/period-calc", icon: "🌸", title: "생리 주기 계산기" },
     { href: "/quit-smoking-calc", icon: "🚭", title: "금연 계산기" },
     { href: "/alcohol-calc", icon: "🍺", title: "음주량 계산기" },
+    { href: "/medicine-calc", icon: "💊", title: "약 용량 계산기" },
+    { href: "/hospital-calc", icon: "🏥", title: "병원비 계산기" },
   ],
   "생활": [
     { href: "/age-calc", icon: "🎂", title: "나이 계산기" },
@@ -56,6 +67,9 @@ const CATEGORIES: Record<string, { href: string; icon: string; title: string }[]
     { href: "/time-calc", icon: "⏱️", title: "시간 계산기" },
     { href: "/pet-age-calc", icon: "🐾", title: "반려동물 나이 계산기" },
     { href: "/lotto-calc", icon: "🎰", title: "로또 확률 계산기" },
+    { href: "/ev-charge-calc", icon: "🔋", title: "전기차 충전 비용 계산기" },
+    { href: "/solar-calc", icon: "☀️", title: "태양광 수익 계산기" },
+    { href: "/subscription-calc", icon: "📱", title: "구독 비용 계산기" },
   ],
   "소비": [
     { href: "/card-calc", icon: "🎫", title: "카드 할인 계산기" },
