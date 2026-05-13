@@ -71,6 +71,25 @@ const calculators = [
   "/tip-calc",
   "/fuel-calc",
   "/electricity-calc",
+  // 세금 (신규)
+  "/inheritance-calc",
+  "/vat-calc",
+  "/customs-calc",
+  "/freelance-tax-calc",
+  // 급여·재테크 (신규)
+  "/monthly-salary-calc",
+  "/hourly-calc",
+  "/health-insurance-calc",
+  "/pension-contrib-calc",
+  "/loan-limit-calc",
+  // 부동산 (신규)
+  "/deposit-return-calc",
+  "/monthly-rent-calc",
+  "/maintenance-calc",
+  "/moving-calc",
+  "/remodeling-calc",
+  // 생활 (신규)
+  "/pet-insurance-calc",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

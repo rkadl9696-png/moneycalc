@@ -15,6 +15,11 @@ const categories = [
       { href: "/capital-gains-calc", icon: "🏡", title: "양도소득세 계산기", desc: "취득가액·양도가액·보유기간으로 양도세 계산", hot: false },
       { href: "/mortgage-calc", icon: "🏠", title: "주택담보대출 계산기", desc: "원리금균등·원금균등 방식별 월 상환액·총 이자 계산", hot: false },
       { href: "/prepayment-calc", icon: "💰", title: "중도상환수수료 계산기", desc: "대출 실행일·상환일 입력으로 중도상환 수수료 계산", hot: false },
+      { href: "/deposit-return-calc", icon: "🔒", title: "전세 보증금 반환 계산기", desc: "계약 만료 후 지연 반환 시 연 12% 기준 지연이자와 청구액 계산", hot: false },
+      { href: "/monthly-rent-calc", icon: "🏠", title: "월세 계산기", desc: "전월세전환율로 전세금↔월세를 환산하고 보증부 월세 계산", hot: false },
+      { href: "/maintenance-calc", icon: "🏢", title: "아파트 관리비 계산기", desc: "면적과 항목별 단가로 월 관리비 예상액 계산", hot: false },
+      { href: "/moving-calc", icon: "🚚", title: "이사 비용 계산기", desc: "이사 유형·거리·이사철 할증 반영 예상 이사 비용 계산", hot: false },
+      { href: "/remodeling-calc", icon: "🔨", title: "리모델링 비용 계산기", desc: "도배·욕실·주방·창호 등 공사 항목별 예상 비용 범위 계산", hot: false },
     ],
   },
   {
@@ -38,6 +43,11 @@ const categories = [
       { href: "/realestate-yield-calc", icon: "🏗️", title: "부동산 수익률 계산기", desc: "매수가·매도가·보유기간으로 매매차익·연평균 수익률 계산", hot: false },
       { href: "/electricity-calc", icon: "⚡", title: "전기요금 계산기", desc: "월 사용량(kWh)으로 한국전력 누진제 기준 전기요금 계산", hot: false },
       { href: "/fuel-calc", icon: "⛽", title: "연료비 계산기", desc: "휘발유·경유·LPG·전기 연비와 주행 거리로 연료비 계산", hot: false },
+      { href: "/monthly-salary-calc", icon: "💵", title: "월급 계산기", desc: "연봉·월급 입력으로 4대보험·소득세 공제 후 실수령액 계산", hot: false },
+      { href: "/hourly-calc", icon: "⏰", title: "시급 계산기", desc: "시급·근무시간으로 일급·주급·월급·연봉과 주휴수당 계산", hot: false },
+      { href: "/health-insurance-calc", icon: "🏥", title: "건강보험료 계산기", desc: "직장·지역가입자별 건강보험료와 장기요양보험료 계산", hot: false },
+      { href: "/pension-contrib-calc", icon: "🏦", title: "국민연금 계산기", desc: "월 소득·가입 기간으로 국민연금 납부액과 예상 수령액 계산", hot: false },
+      { href: "/loan-limit-calc", icon: "💰", title: "대출 한도 계산기", desc: "DSR 40%·LTV 70% 기준으로 대출 가능 한도 계산", hot: false },
     ],
   },
   {
@@ -46,6 +56,10 @@ const categories = [
     items: [
       { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기", desc: "증여 금액·관계 입력으로 공제 후 납부세액 계산", hot: false },
       { href: "/income-tax-calc", icon: "📊", title: "종합소득세 계산기", desc: "연간 소득과 종류 입력으로 종합소득세 계산", hot: false },
+      { href: "/inheritance-calc", icon: "🏛️", title: "상속세 계산기", desc: "상속 재산·상속인 구성으로 기초공제·배우자공제 후 납부세액 계산", hot: false },
+      { href: "/vat-calc", icon: "🧾", title: "부가가치세 계산기", desc: "공급가액↔VAT 포함가 환산, 간이과세 부가율 지원", hot: false },
+      { href: "/customs-calc", icon: "📦", title: "관세 계산기", desc: "해외 직구 물품 과세가격·관세·부가세 및 면세 여부 계산", hot: false },
+      { href: "/freelance-tax-calc", icon: "💼", title: "프리랜서 세금 계산기", desc: "연간 수입·업종으로 종합소득세와 3.3% 원천징수 환급·추납액 계산", hot: false },
     ],
   },
   {
@@ -101,6 +115,7 @@ const categories = [
       { href: "/ev-charge-calc", icon: "🔋", title: "전기차 충전 비용 계산기", desc: "배터리 용량·충전 방식으로 충전 비용·시간·내연기관차 대비 절약액 계산", hot: false },
       { href: "/solar-calc", icon: "☀️", title: "태양광 수익 계산기", desc: "설치 용량·지역으로 태양광 월 수익·연 수익·투자 회수 기간 계산", hot: false },
       { href: "/subscription-calc", icon: "📱", title: "구독 비용 계산기", desc: "넷플릭스·유튜브 등 구독 서비스 추가로 월 총합·연 총합·비율 확인", hot: false },
+      { href: "/pet-insurance-calc", icon: "🐾", title: "반려동물 보험 계산기", desc: "강아지·고양이 나이·품종·보장 범위로 월 예상 보험료 계산", hot: false },
     ],
   },
   {
