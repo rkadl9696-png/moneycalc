@@ -16,6 +16,9 @@ const CATEGORIES: Record<string, { href: string; icon: string; title: string }[]
     { href: "/maintenance-calc", icon: "🏢", title: "아파트 관리비 계산기" },
     { href: "/moving-calc", icon: "🚚", title: "이사 비용 계산기" },
     { href: "/remodeling-calc", icon: "🔨", title: "리모델링 비용 계산기" },
+    { href: "/deposit-interest-calc", icon: "🔑", title: "보증금 이자 계산기" },
+    { href: "/premium-calc", icon: "🏪", title: "권리금 계산기" },
+    { href: "/commercial-rent-calc", icon: "🏬", title: "상가 임대료 계산기" },
   ],
   "급여·재테크": [
     { href: "/salary-calc", icon: "💰", title: "연봉 실수령 계산기" },
@@ -38,6 +41,13 @@ const CATEGORIES: Record<string, { href: string; icon: string; title: string }[]
     { href: "/pension-contrib-calc", icon: "🏦", title: "국민연금 계산기" },
     { href: "/loan-limit-calc", icon: "💰", title: "대출 한도 계산기" },
     { href: "/retirement-fund-calc", icon: "🏖️", title: "노후자금 계산기" },
+    { href: "/business-profit-calc", icon: "📊", title: "사업 수익성 계산기" },
+    { href: "/breakeven-calc", icon: "📈", title: "손익분기점 계산기" },
+    { href: "/roi-calc", icon: "💹", title: "ROI 계산기" },
+    { href: "/inflation-calc", icon: "📉", title: "인플레이션 계산기" },
+    { href: "/exchange-fee-calc", icon: "💱", title: "환전 수수료 계산기" },
+    { href: "/remittance-calc", icon: "💸", title: "해외송금 수수료 계산기" },
+    { href: "/crypto-calc", icon: "₿", title: "가상화폐 수익 계산기" },
   ],
   "세금": [
     { href: "/gift-tax-calc", icon: "🎁", title: "증여세 계산기" },
@@ -106,6 +116,11 @@ const CATEGORIES: Record<string, { href: string; icon: string; title: string }[]
     { href: "/tip-calc", icon: "💵", title: "팁 계산기" },
     { href: "/fuel-calc", icon: "⛽", title: "연료비 계산기" },
     { href: "/electricity-calc", icon: "⚡", title: "전기요금 계산기" },
+    { href: "/points-calc", icon: "⭐", title: "포인트 적립 계산기" },
+    { href: "/mileage-calc", icon: "✈️", title: "마일리지 계산기" },
+    { href: "/coupon-calc", icon: "🎟️", title: "쿠폰 할인 계산기" },
+    { href: "/split-payment-calc", icon: "💳", title: "분할납부 계산기" },
+    { href: "/overdue-calc", icon: "⏰", title: "연체이자 계산기" },
   ],
 };
 

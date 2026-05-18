@@ -109,6 +109,24 @@ const calculators = [
   "/education-tax-calc",
   // 급여·재테크 (신규2)
   "/retirement-fund-calc",
+  // 소비 (신규3)
+  "/points-calc",
+  "/mileage-calc",
+  "/coupon-calc",
+  "/split-payment-calc",
+  "/overdue-calc",
+  // 부동산 (신규3)
+  "/deposit-interest-calc",
+  "/premium-calc",
+  "/commercial-rent-calc",
+  // 급여·재테크 (신규3)
+  "/business-profit-calc",
+  "/breakeven-calc",
+  "/roi-calc",
+  "/inflation-calc",
+  "/exchange-fee-calc",
+  "/remittance-calc",
+  "/crypto-calc",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
