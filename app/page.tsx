@@ -48,6 +48,7 @@ const categories = [
       { href: "/health-insurance-calc", icon: "🏥", title: "건강보험료 계산기", desc: "직장·지역가입자별 건강보험료와 장기요양보험료 계산", hot: false },
       { href: "/pension-contrib-calc", icon: "🏦", title: "국민연금 계산기", desc: "월 소득·가입 기간으로 국민연금 납부액과 예상 수령액 계산", hot: false },
       { href: "/loan-limit-calc", icon: "💰", title: "대출 한도 계산기", desc: "DSR 40%·LTV 70% 기준으로 대출 가능 한도 계산", hot: false },
+      { href: "/retirement-fund-calc", icon: "🏖️", title: "노후자금 계산기", desc: "은퇴 후 필요 자금 계산", hot: false },
     ],
   },
   {
@@ -60,6 +61,10 @@ const categories = [
       { href: "/vat-calc", icon: "🧾", title: "부가가치세 계산기", desc: "공급가액↔VAT 포함가 환산, 간이과세 부가율 지원", hot: false },
       { href: "/customs-calc", icon: "📦", title: "관세 계산기", desc: "해외 직구 물품 과세가격·관세·부가세 및 면세 여부 계산", hot: false },
       { href: "/freelance-tax-calc", icon: "💼", title: "프리랜서 세금 계산기", desc: "연간 수입·업종으로 종합소득세와 3.3% 원천징수 환급·추납액 계산", hot: false },
+      { href: "/jongbu-calc", icon: "🏘️", title: "종합부동산세 계산기", desc: "공시가격 기준 종부세 계산", hot: false },
+      { href: "/acquisition-tax-calc", icon: "🏠", title: "취득세 계산기", desc: "주택 취득 시 취득세 계산", hot: false },
+      { href: "/property-tax-calc", icon: "🏡", title: "재산세 계산기", desc: "주택·토지 재산세 계산", hot: false },
+      { href: "/car-tax-calc", icon: "🚗", title: "자동차세 계산기", desc: "배기량별 자동차세 계산", hot: false },
     ],
   },
   {
@@ -69,6 +74,9 @@ const categories = [
       { href: "/gpa-calc", icon: "🎓", title: "학점 계산기", desc: "과목별 성적과 학점수로 4.5·4.3 만점 평균 평점(GPA) 계산", hot: false },
       { href: "/suneung-calc", icon: "📝", title: "수능 등급 계산기", desc: "국어·수학·영어·탐구 원점수 입력으로 과목별 수능 등급 계산", hot: false },
       { href: "/naesin-calc", icon: "📋", title: "내신 등급 계산기", desc: "석차·전체 인원 입력으로 내신 등급과 평균 내신 계산", hot: false },
+      { href: "/tuition-calc", icon: "🎓", title: "대학 등록금 계산기", desc: "국공립·사립 등록금 비교", hot: false },
+      { href: "/scholarship-calc", icon: "📚", title: "장학금 계산기", desc: "국가장학금 수혜 금액 계산", hot: false },
+      { href: "/education-tax-calc", icon: "📝", title: "교육비 세액공제 계산기", desc: "교육비 세액공제 환급액 계산", hot: false },
     ],
   },
   {
@@ -116,6 +124,13 @@ const categories = [
       { href: "/solar-calc", icon: "☀️", title: "태양광 수익 계산기", desc: "설치 용량·지역으로 태양광 월 수익·연 수익·투자 회수 기간 계산", hot: false },
       { href: "/subscription-calc", icon: "📱", title: "구독 비용 계산기", desc: "넷플릭스·유튜브 등 구독 서비스 추가로 월 총합·연 총합·비율 확인", hot: false },
       { href: "/pet-insurance-calc", icon: "🐾", title: "반려동물 보험 계산기", desc: "강아지·고양이 나이·품종·보장 범위로 월 예상 보험료 계산", hot: false },
+      { href: "/car-insurance-calc", icon: "🚗", title: "자동차 보험료 계산기", desc: "차량·운전자 조건별 보험료 예상", hot: false },
+      { href: "/car-depreciation-calc", icon: "🚙", title: "자동차 감가상각 계산기", desc: "연식별 차량 잔존가치 계산", hot: false },
+      { href: "/childcare-calc", icon: "👶", title: "육아비용 계산기", desc: "정부지원 반영 실부담 육아비용", hot: false },
+      { href: "/emergency-fund-calc", icon: "💰", title: "비상금 계산기", desc: "적정 비상금 규모 계산", hot: false },
+      { href: "/living-cost-calc", icon: "🏠", title: "생활비 계산기", desc: "가구별 월 생활비 분석", hot: false },
+      { href: "/travel-cost-calc", icon: "✈️", title: "여행 경비 계산기", desc: "여행 총 경비 및 1인당 비용", hot: false },
+      { href: "/wedding-cost-calc", icon: "💍", title: "결혼 비용 계산기", desc: "항목별 결혼 총 비용 계산", hot: false },
     ],
   },
   {

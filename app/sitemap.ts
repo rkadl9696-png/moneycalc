@@ -90,6 +90,25 @@ const calculators = [
   "/remodeling-calc",
   // 생활 (신규)
   "/pet-insurance-calc",
+  // 세금 (신규2)
+  "/jongbu-calc",
+  "/acquisition-tax-calc",
+  "/property-tax-calc",
+  "/car-tax-calc",
+  // 생활 (신규2)
+  "/car-insurance-calc",
+  "/car-depreciation-calc",
+  "/childcare-calc",
+  "/emergency-fund-calc",
+  "/living-cost-calc",
+  "/travel-cost-calc",
+  "/wedding-cost-calc",
+  // 교육 (신규2)
+  "/tuition-calc",
+  "/scholarship-calc",
+  "/education-tax-calc",
+  // 급여·재테크 (신규2)
+  "/retirement-fund-calc",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
